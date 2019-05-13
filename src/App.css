@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #logo {
@@ -13,7 +13,38 @@
   border-bottom: 2px solid black;
 }
 
-li {
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#navBarListItem {
   display: inline-block;
   padding-right: 50px;
+}
+
+#articleTileListItem {
+  display: inline-block;
+  padding-right: 5px;
+}
+
+#articleTileImage {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+
+#articleTileContainer {
+  position: relative;
+  height: 250px;
+  width: 250px;
+}
+
+.articleTitle {
+  text-align: left;
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  right: 10px;
+  color: white;
 }
