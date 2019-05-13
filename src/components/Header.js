@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from '@reach/router';
 
 function Header () {
     return (
@@ -9,13 +10,12 @@ function Header () {
                 <button type="button">SIGN-UP</button>
             </form>
             <ul className="navBar">
-                <li>Recipes</li>
-                <li>Reviews</li>
-                <li>Top 5</li>
-                <li>Chef's Table</li>
-                <li>Healthy Living</li>
-                <li>Treat Yo' Self</li>
-                <li>Search...</li>
+                <li><Link to="/topics/recipes">Recipes</Link></li>
+                <li><Link to="/topics/reviews">Reviews</Link></li>
+                <li><Link to="/topics/top5">Top 5</Link></li>
+                <li><Link to="/topics/chef">Chef's Table</Link></li>
+                <li><Link to="/topics/healthy">Healthy Living</Link></li>
+                <li><Link to="/topics/treats">Treat Yo' Self</Link></li>
             </ul>
         </div>
     )
