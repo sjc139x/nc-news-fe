@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ArticleGrid from '../components/ArticleGrid';
 
-class Home extends React.Component {
+class AllArticles extends React.Component {
     state = {
         articles: null
     }
@@ -24,4 +24,4 @@ class Home extends React.Component {
     }
 };
 
-export default Home;
+export default AllArticles;

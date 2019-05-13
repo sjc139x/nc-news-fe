@@ -40,11 +40,11 @@ ul {
   width: 250px;
 }
 
-.articleTitle {
+#articleTileText {
   text-align: left;
   position: absolute;
   bottom: 8px;
-  left: 10px;
-  right: 10px;
+  left: 6px;
+  right: 6px;
   color: white;
 }

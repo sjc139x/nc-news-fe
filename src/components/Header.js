@@ -11,12 +11,12 @@ function Header () {
             </form>
             <ul className="navBar">
                 <li id="navBarListItem" key="home"><Link to="/">Home</Link></li>
-                <li id="navBarListItem" key="recipes"><Link to="/topics/recipes">Recipes</Link></li>
-                <li id="navBarListItem" key="reviews"><Link to="/topics/reviews">Reviews</Link></li>
-                <li id="navBarListItem" key="top5"><Link to="/topics/top5">Top 5</Link></li>
-                <li id="navBarListItem" key="chef"><Link to="/topics/chef">Chef's Table</Link></li>
-                <li id="navBarListItem" key="healthy"><Link to="/topics/healthy">Healthy Living</Link></li>
-                <li id="navBarListItem" key="treats"><Link to="/topics/treats">Treat Yo' Self</Link></li>
+                <li id="navBarListItem" key="recipes"><Link to="/recipes">Recipes</Link></li>
+                <li id="navBarListItem" key="reviews"><Link to="/reviews">Reviews</Link></li>
+                <li id="navBarListItem" key="top5"><Link to="/top5">Top 5</Link></li>
+                <li id="navBarListItem" key="chef"><Link to="/chef">Chef's Table</Link></li>
+                <li id="navBarListItem" key="healthy"><Link to="/healthy">Healthy Living</Link></li>
+                <li id="navBarListItem" key="treats"><Link to="/treats">Treat Yo' Self</Link></li>
             </ul>
         </div>
     )

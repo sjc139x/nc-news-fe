@@ -2,16 +2,28 @@ import React from 'react';
 import './App.css';
 import { Router } from '@reach/router';
 import Header from './components/Header';
-import Home from './pages/Home';
-import Topics from './pages/Topics';
+import AllArticles from './pages/AllArticles';
+import Recipes from './pages/Recipes';
+import Reviews from './pages/Reviews';
+import TopFive from './pages/TopFive';
+import ChefLife from './pages/ChefLife';
+import Healthy from './pages/Healthy';
+import Treats from './pages/Treats';
+import SingleArticle from './pages/SingleArticle';
 
 function App() {
   return (
     <div className="App">
       <Header/>
       <Router>
-        <Home path="/"/>
-        <Topics path="/topics/*"/>
+        <AllArticles path="/"/>
+        <SingleArticle path="/:article_id"/>
+        <Recipes path="/recipes"/>
+        <Reviews path="/reviews"/>
+        <TopFive path="/top5"/>
+        <ChefLife path="/chef"/>
+        <Healthy path="/healthy"/>
+        <Treats path="/treats"/>
       </Router>
     </div>
   );
