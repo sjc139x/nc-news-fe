@@ -10,6 +10,7 @@ import ChefLife from './pages/ChefLife';
 import Healthy from './pages/Healthy';
 import Treats from './pages/Treats';
 import SingleArticle from './pages/SingleArticle';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -17,13 +18,14 @@ function App() {
       <Header/>
       <Router>
         <AllArticles path="/"/>
-        <SingleArticle path="/:article_id"/>
+        <SingleArticle path="/article/:article_id"/>
         <Recipes path="/recipes"/>
         <Reviews path="/reviews"/>
         <TopFive path="/top5"/>
         <ChefLife path="/chef"/>
         <Healthy path="/healthy"/>
         <Treats path="/treats"/>
+        <Profile path="/profile/:username" />
       </Router>
     </div>
   );

@@ -21,6 +21,11 @@
   text-align: center;
 }
 
+.articleTileTitle, .articleAuthor {
+  color: white;
+  text-decoration: underline;
+}
+
 #commentList {
   border-style: solid;
   border-width: 1px;
