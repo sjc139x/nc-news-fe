@@ -1,9 +1,28 @@
 import React from 'react';
+import getArticles from '../api-interactions';
+import ArticleGrid from '../components/ArticleGrid';
 
-function ChefLife () {
-    return (
-        <p>Chef life...</p>
-    )
+class ChefLife extends React.Component {
+    state = {
+        chefLifeContent: null
+    }
+
+    render () {
+        const { chefLifeContent } = this.state;
+        return (
+            <div>
+                {chefLifeContent && <ArticleGrid articles={chefLifeContent}/>}
+            </div>
+        )
+    }
+
+    componentDidMount () {
+        getArticles('chef life')
+        .then(chefLifeContent => {
+            this.setState({ chefLifeContent })
+        });
+    }
+
 };
 
 export default ChefLife;
