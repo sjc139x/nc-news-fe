@@ -5,13 +5,11 @@ function LogInOverlay () {
     <div className="overlay">
         <form className="modal">
             <h3>Please log-in...</h3>
-            <label id="usernameLabel">Username:
-                <input type="text" id="usernameInput"/>
-            </label>
+            <input type="text" value="Username..." id="usernameInput"/>
             <br/>
-            <label id="passwordLabel">Password:
-                <input type="password" id="passwordInput"/>
-            </label>
+            <input type="text" value="Password..." id="passwordInput"/>
+            <br/>
+            <button type="button" value="logIn">Log-In</button>
         </form>
     </div>
     )

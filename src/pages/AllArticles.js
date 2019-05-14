@@ -10,11 +10,12 @@ class AllArticles extends React.Component {
     
     render () {
         const { articles } = this.state;
-        
+        const { logInButtonClicked, signUpButtonClicked } = this.props;
+        console.log(logInButtonClicked + '<-- log in //', signUpButtonClicked + '<-- sign up');
         return (
             <div>
                 {articles && <ArticleGrid articles={articles}/>}
-                <LogInOverlay/>
+                {logInButtonClicked && <LogInOverlay/>}
             </div>
         )
     }
