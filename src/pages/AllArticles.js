@@ -9,6 +9,7 @@ class AllArticles extends React.Component {
     
     render () {
         const { articles } = this.state;
+        
         return (
             <div>
                 {articles && <ArticleGrid articles={articles}/>}

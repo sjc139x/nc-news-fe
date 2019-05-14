@@ -3,6 +3,33 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.singleArticle {
+  text-align: left;
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+}
+
+#SingleArticle-image {
+  max-width: 100%;
+  max-height: 100vh;
+  height: auto;
+}
+
+#articleTitle {
+  font-size: 400%;
+  text-align: center;
+}
+
+#commentList {
+  border-style: solid;
+  border-width: 1px;
+}
+
+#articleBody {
+  font-size: 150%;
+}
+
 #logo {
   width: 300px;
   height: auto;
