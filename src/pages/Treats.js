@@ -1,5 +1,5 @@
 import React from 'react';
-import getArticles from '../api-interactions';
+import { getArticlesByTopic } from '../api-interactions';
 import ArticleGrid from '../components/ArticleGrid';
 
 class Treats extends React.Component {
@@ -17,7 +17,7 @@ class Treats extends React.Component {
     }
 
     componentDidMount () {
-        getArticles('treats')
+        getArticlesByTopic('treats')
         .then(treatContent => {
             this.setState({ treatContent })
         });

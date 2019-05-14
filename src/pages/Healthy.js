@@ -1,5 +1,5 @@
 import React from 'react';
-import getArticles from '../api-interactions';
+import { getArticlesByTopic } from '../api-interactions';
 import ArticleGrid from '../components/ArticleGrid';
 
 class Healthy extends React.Component {
@@ -17,7 +17,7 @@ class Healthy extends React.Component {
     }
 
     componentDidMount () {
-        getArticles('healthy')
+        getArticlesByTopic('healthy')
         .then(healthyContent => {
             this.setState({ healthyContent })
         });

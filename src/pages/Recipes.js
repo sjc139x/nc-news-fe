@@ -1,5 +1,5 @@
 import React from 'react';
-import getArticles from '../api-interactions';
+import { getArticlesByTopic } from '../api-interactions';
 import ArticleGrid from '../components/ArticleGrid';
 
 class Recipes extends React.Component {
@@ -17,7 +17,7 @@ class Recipes extends React.Component {
     }
 
     componentDidMount () {
-        getArticles('recipes')
+        getArticlesByTopic('recipes')
         .then(recipes => {
             this.setState({ recipes })
         });
