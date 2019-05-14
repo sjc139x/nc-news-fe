@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import ArticleGrid from '../components/ArticleGrid';
+import LogInOverlay from '../components/LogInOverlay';
 
 class AllArticles extends React.Component {
     state = {
@@ -13,6 +14,7 @@ class AllArticles extends React.Component {
         return (
             <div>
                 {articles && <ArticleGrid articles={articles}/>}
+                <LogInOverlay/>
             </div>
         )
     }
