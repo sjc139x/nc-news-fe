@@ -12,22 +12,24 @@ import Treats from './pages/Treats';
 import SingleArticle from './pages/SingleArticle';
 import Profile from './pages/Profile';
 import { getUserInfo } from './api-interactions';
+import LogInOverlay from './components/LogInOverlay';
 
 class App extends React.Component {
   state = {
     logInButtonClicked: false,
     signUpButtonClicked: false,
     usernameInput: '',
-    loggedInUser: null
+    loggedInUser: null,
+    errorOnLogIn: false
   }
   
   render () {
-    const { logInButtonClicked, signUpButtonClicked, usernameInput, loggedInUser } = this.state;
+    const { logInButtonClicked, signUpButtonClicked, usernameInput, loggedInUser, errorOnLogIn } = this.state;
     return (
       <div className="App">
-        <Header toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox} loggedInUser={loggedInUser}/>
+        <Header toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox} loggedInUser={loggedInUser} logOutUser={this.logOutUser}/>
         <Router>
-          <AllArticles path="/" logInButtonClicked={logInButtonClicked} signUpButtonClicked={signUpButtonClicked} toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox} logInUser={this.logInUser} handleTyping={this.handleTyping} usernameInput={usernameInput}/>
+          <AllArticles path="/"/>
           <SingleArticle path="/article/:article_id"/>
           <Recipes path="/recipes"/>
           <Reviews path="/reviews"/>
@@ -37,10 +39,10 @@ class App extends React.Component {
           <Treats path="/treats"/>
           <Profile path="/profile/:username" />
         </Router>
+        {logInButtonClicked && <LogInOverlay toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox} logInUser={this.logInUser} handleTyping={this.handleTyping} usernameInput={usernameInput} errorOnLogIn={errorOnLogIn} />}
       </div>
     );
   }
-
   
   toggleLogInBox = () => {
     this.setState(prevState => ({
@@ -63,11 +65,15 @@ class App extends React.Component {
     getUserInfo(usernameInput)
     .then(user => {
       this.setState({ loggedInUser: user });
-    });
+    })
+    .catch(error => {
+      this.setState({ errorOnLogIn: true });
+    })
   }
 
-  // "(GET) /API/USERS/:USERNAME": {
-  //   "response_if_successful": "specific user information"
+  logOutUser = () => {
+    this.setState({ loggedInUser: null });
+  }
 
 }
 

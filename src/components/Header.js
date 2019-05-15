@@ -2,21 +2,21 @@ import React from 'react';
 import { Link } from '@reach/router';
 import LoggedIn from './LoggedIn';
 
-function Header ({ toggleLogInBox, toggleSignUpBox, loggedInUser }) {
+function Header ({ toggleLogInBox, toggleSignUpBox, loggedInUser, logOutUser }) {
     return (
         <div>
             <img src="https://i.ibb.co/r3dSYj6/Screen-Shot-2019-05-13-at-09-32-38.png" alt="logo" id="logo"/>
                 {!loggedInUser && (
                     <div id="userAccountButtons">
-                        <button type="button" onClick={toggleLogInBox}>LOG-IN</button>
+                        <button type="button" onClick={toggleLogInBox}>LOG IN</button>
                         <br/>
                         <br/>
-                        <button type="button" onClick={toggleSignUpBox}>SIGN-UP</button>
+                        <button type="button" onClick={toggleSignUpBox}>SIGN UP</button>
                     </div>
                 )}
                 {loggedInUser && (
                     <div>
-                        <LoggedIn userInfo={loggedInUser}/>
+                        <LoggedIn userInfo={loggedInUser} logOutUser={logOutUser}/>
                     </div>
                 )}
             <ul className="navBar">
