@@ -10,12 +10,12 @@ class AllArticles extends React.Component {
     
     render () {
         const { articles } = this.state;
-        const { logInButtonClicked, signUpButtonClicked } = this.props;
+        const { logInButtonClicked, signUpButtonClicked, toggleLogInBox, toggleSignUpBox, logInUser, handleTyping, usernameInput } = this.props;
         console.log(logInButtonClicked + '<-- log in //', signUpButtonClicked + '<-- sign up');
         return (
             <div>
                 {articles && <ArticleGrid articles={articles}/>}
-                {logInButtonClicked && <LogInOverlay/>}
+                {logInButtonClicked && <LogInOverlay toggleLogInBox={toggleLogInBox} toggleSignUpBox={toggleSignUpBox} logInUser={logInUser} handleTyping={handleTyping} usernameInput={usernameInput} />}
             </div>
         )
     }

@@ -16,6 +16,7 @@ class App extends React.Component {
   state = {
     logInButtonClicked: false,
     signUpButtonClicked: false,
+    usernameInput: null,
     loggedInUser: null
   }
   
@@ -25,7 +26,7 @@ class App extends React.Component {
       <div className="App">
         <Header toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox}/>
         <Router>
-          <AllArticles path="/" logInButtonClicked={logInButtonClicked} signUpButtonClicked={signUpButtonClicked}/>
+          <AllArticles path="/" logInButtonClicked={logInButtonClicked} signUpButtonClicked={signUpButtonClicked} toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox} logInUser={this.logInUser} handleTyping={this.handleTyping} usernameInput={this.usernameInput}/>
           <SingleArticle path="/article/:article_id"/>
           <Recipes path="/recipes"/>
           <Reviews path="/reviews"/>
@@ -46,15 +47,19 @@ class App extends React.Component {
     }));
   }
 
-  // toggleSignUpBox = () => {
-  //   this.setState(prevState => ({
-  //     signUpButtonClicked: !prevState.signUpButtonClicked
-  //   }));
-  // }
+  toggleSignUpBox = () => {
+    this.setState(prevState => ({
+      signUpButtonClicked: !prevState.signUpButtonClicked
+    }));
+  }
 
-  // logInUser = () => {
-  //   console.log('ur logged in...NOT...hahahhahaa')
-  // }
+  handleTyping = (event) => {
+    this.setState({ usernameInput: event.target.value });
+  }
+
+  logInUser = () => {
+    console.log('ur logged in...NOT...hahahhahaa')
+  }
 
 }
 
