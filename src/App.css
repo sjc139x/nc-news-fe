@@ -136,3 +136,27 @@ ul {
 #logInButton, #closeButton {
   margin: 10px;
 }
+
+.loggedInUserImage {
+  width: 50px;
+  height: auto;
+}
+
+#loggedInInfoBox {
+  display: inline-block;
+  width: 150px;
+  position: absolute;
+  top: 30px;
+  right: 0px;
+}
+
+#welcomeBackText {
+  font-size: 13px;
+  margin: 5px;
+}
+
+#userAccountButtons {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+}

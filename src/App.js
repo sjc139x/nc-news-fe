@@ -11,22 +11,23 @@ import Healthy from './pages/Healthy';
 import Treats from './pages/Treats';
 import SingleArticle from './pages/SingleArticle';
 import Profile from './pages/Profile';
+import { getUserInfo } from './api-interactions';
 
 class App extends React.Component {
   state = {
     logInButtonClicked: false,
     signUpButtonClicked: false,
-    usernameInput: null,
+    usernameInput: '',
     loggedInUser: null
   }
   
   render () {
-    const { logInButtonClicked, signUpButtonClicked } = this.state;
+    const { logInButtonClicked, signUpButtonClicked, usernameInput, loggedInUser } = this.state;
     return (
       <div className="App">
-        <Header toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox}/>
+        <Header toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox} loggedInUser={loggedInUser}/>
         <Router>
-          <AllArticles path="/" logInButtonClicked={logInButtonClicked} signUpButtonClicked={signUpButtonClicked} toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox} logInUser={this.logInUser} handleTyping={this.handleTyping} usernameInput={this.usernameInput}/>
+          <AllArticles path="/" logInButtonClicked={logInButtonClicked} signUpButtonClicked={signUpButtonClicked} toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox} logInUser={this.logInUser} handleTyping={this.handleTyping} usernameInput={usernameInput}/>
           <SingleArticle path="/article/:article_id"/>
           <Recipes path="/recipes"/>
           <Reviews path="/reviews"/>
@@ -57,9 +58,16 @@ class App extends React.Component {
     this.setState({ usernameInput: event.target.value });
   }
 
-  logInUser = () => {
-    console.log('ur logged in...NOT...hahahhahaa')
+  logInUser = (event) => {
+    const { usernameInput } = this.state;
+    getUserInfo(usernameInput)
+    .then(user => {
+      this.setState({ loggedInUser: user });
+    });
   }
+
+  // "(GET) /API/USERS/:USERNAME": {
+  //   "response_if_successful": "specific user information"
 
 }
 

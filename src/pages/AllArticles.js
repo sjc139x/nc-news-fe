@@ -11,7 +11,6 @@ class AllArticles extends React.Component {
     render () {
         const { articles } = this.state;
         const { logInButtonClicked, signUpButtonClicked, toggleLogInBox, toggleSignUpBox, logInUser, handleTyping, usernameInput } = this.props;
-        console.log(logInButtonClicked + '<-- log in //', signUpButtonClicked + '<-- sign up');
         return (
             <div>
                 {articles && <ArticleGrid articles={articles}/>}
