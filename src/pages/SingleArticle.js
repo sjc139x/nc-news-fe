@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import CommentGrid from '../components/CommentGrid';
-import Voting from '../components/ArticleVoting';
+import Voting from '../components/Voting';
 
 class SingleArticle extends React.Component {
     state = {
@@ -20,11 +20,11 @@ class SingleArticle extends React.Component {
                 {article && <div>
                     <h3 id="articleTitle">{article.title}</h3>
                     <p id="articleBody">{article.body}</p>
-                    <Voting loggedInUser={loggedInUser} changeArticleVotes={this.changeArticleVotes} article={article}/>
+                    <Voting loggedInUser={loggedInUser} type={'articles'} id={article.article_id} votes={article.votes}/>
                 </div>}
 
                 <h2 id="commentsTitle">Comments...</h2>
-                {comments && <CommentGrid comments={comments} loggedInUser={loggedInUser} changeVotes={this.changeVotes}/>}
+                {comments && <CommentGrid comments={comments} loggedInUser={loggedInUser}/>}
 
             </div>
             </>
@@ -44,25 +44,6 @@ class SingleArticle extends React.Component {
             this.setState({ comments })
         });
     }
-
-    changeArticleVotes = (integer) => {
-        const { article_id } = this.props;
-
-        axios.patch(`https://nc-news-sjc.herokuapp.com/api/articles/${article_id}`, {
-            inc_votes: integer
-        });
-        
-        this.setState(prevState => ({
-            article: {
-                votes: prevState.article.votes + integer
-            }
-        }));
-    }
-
-// "(PATCH) /API/ARTICLES/:ARTICLE_ID": {
-//       "request_body_format": {
-//         "inc_votes": "integer"
-//       }
 
 };
 
