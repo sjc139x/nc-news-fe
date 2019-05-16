@@ -60,6 +60,7 @@
 
 #articleBody {
   font-size: 150%;
+  padding-bottom: 50px;
 }
 
 #logo {
@@ -165,4 +166,24 @@ ul {
 #commentsTitle {
   border-top: 1px solid black;
   padding-top: 20px;
+}
+
+.commentButton {
+  display: flex;
+  text-align: right;
+}
+
+.commentBox {
+  width: 500px;
+  height: 50px;
+  margin-bottom: 5px;
+}
+
+.votingButtons {
+  margin-bottom: 15px;
+}
+
+.commentSection {
+  border-top: 1px solid black;
+  margin-bottom: 20px;
 }

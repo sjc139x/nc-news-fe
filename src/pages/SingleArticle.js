@@ -23,7 +23,6 @@ class SingleArticle extends React.Component {
                     <Voting loggedInUser={loggedInUser} type={'articles'} id={article.article_id} votes={article.votes}/>
                 </div>}
 
-                <h2 id="commentsTitle">Comments...</h2>
                 {comments && <CommentGrid comments={comments} loggedInUser={loggedInUser}/>}
 
             </div>
