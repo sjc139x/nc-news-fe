@@ -1,7 +1,6 @@
 import React from 'react';
 
-function LogInOverlay (props) {
-    const { toggleLogInBox, toggleSignUpBox, logInUser, handleTyping, usernameInput, errorOnLogIn } = props;
+function LogInOverlay ({ toggleLogInBox, toggleSignUpBox, logInUser, handleTyping, usernameInput, errorOnLogIn }) {
     return (
     <div className="overlay">
         <form className="modal">

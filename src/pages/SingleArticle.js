@@ -3,14 +3,16 @@ import axios from 'axios';
 import CommentGrid from '../components/CommentGrid';
 import Voting from '../components/Voting';
 
+//could i move the comments out of here?
 class SingleArticle extends React.Component {
     state = {
         article: null,
-        comments: null
+        comments: null,
+        commentInput: ''
     }
 
     render () {
-        const { article, comments } = this.state;
+        const { article, comments, commentInput } = this.state;
         const { loggedInUser } = this.props;
         return (
             <>
@@ -23,7 +25,7 @@ class SingleArticle extends React.Component {
                     <Voting loggedInUser={loggedInUser} type={'articles'} id={article.article_id} votes={article.votes}/>
                 </div>}
 
-                {comments && <CommentGrid comments={comments} loggedInUser={loggedInUser}/>}
+                {comments && <CommentGrid comments={comments} loggedInUser={loggedInUser} commentInput={commentInput} addComment={this.addComment} handleCommentTyping={this.handleCommentTyping}/>}
 
             </div>
             </>
@@ -41,6 +43,25 @@ class SingleArticle extends React.Component {
         axios.get(`https://nc-news-sjc.herokuapp.com/api/articles/${article_id}/comments`)
         .then(({ data: { comments } }) => {
             this.setState({ comments })
+        });
+    }
+
+    handleCommentTyping = (event) => {
+        this.setState({ commentInput: event.target.value });
+    }
+
+    addComment = () => {
+        const { article_id, loggedInUser } = this.props;
+        const { commentInput } = this.state;
+
+        axios.post(`https://nc-news-sjc.herokuapp.com/api/articles/${article_id}/comments`, {
+            username: loggedInUser.username,
+            body: commentInput
+        })
+        .then(({ data: { comment } }) => {
+            this.setState(prevState => ({
+                comments: [comment, ...prevState.comments]
+            }));
         });
     }
 
