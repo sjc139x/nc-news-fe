@@ -10,7 +10,6 @@ class Profile extends React.Component {
     
     render () {
         const { userInfo, userArticles } = this.state;
-        console.log(userArticles)
         return (
             <>
             <div className="profileTile">

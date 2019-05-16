@@ -163,11 +163,6 @@ ul {
   right: 20px;
 }
 
-#commentsTitle {
-  border-top: 1px solid black;
-  padding-top: 20px;
-}
-
 .commentButton {
   display: flex;
   text-align: right;
@@ -186,4 +181,8 @@ ul {
 .commentSection {
   border-top: 1px solid black;
   margin-bottom: 20px;
+}
+
+#deleteCommentButton {
+  margin-top: 10px;
 }

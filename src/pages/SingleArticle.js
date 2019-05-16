@@ -25,7 +25,7 @@ class SingleArticle extends React.Component {
                     <Voting loggedInUser={loggedInUser} type={'articles'} id={article.article_id} votes={article.votes}/>
                 </div>}
 
-                {comments && <CommentGrid comments={comments} loggedInUser={loggedInUser} commentInput={commentInput} addComment={this.addComment} handleCommentTyping={this.handleCommentTyping}/>}
+                {comments && <CommentGrid comments={comments} loggedInUser={loggedInUser} commentInput={commentInput} addComment={this.addComment} handleCommentTyping={this.handleCommentTyping} deleteOwnComment={this.deleteOwnComment} />}
 
             </div>
             </>
@@ -63,6 +63,15 @@ class SingleArticle extends React.Component {
                 comments: [comment, ...prevState.comments]
             }));
         });
+    }
+
+    deleteOwnComment = (comment_id) => {
+        axios.delete(`https://nc-news-sjc.herokuapp.com/api/comments/${comment_id}`)
+        .then(res => {
+            this.setState(prevState => ({
+                comments: prevState.comments.filter(comment => comment.comment_id !== comment_id)
+            }));
+        })
     }
 
 };
