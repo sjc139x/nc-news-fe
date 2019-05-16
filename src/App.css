@@ -55,8 +55,7 @@
 }
 
 #commentList {
-  border-style: solid;
-  border-width: 1px;
+  border-top: 1px solid black;
 }
 
 #articleBody {
@@ -71,6 +70,7 @@
 .navBar {
   border-top: 2px solid black;
   border-bottom: 2px solid black;
+  padding: 6px;
 }
 
 ul {
@@ -160,4 +160,9 @@ ul {
   position: absolute;
   top: 50px;
   right: 20px;
+}
+
+#commentsTitle {
+  border-top: 1px solid black;
+  padding-top: 20px;
 }

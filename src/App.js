@@ -30,7 +30,7 @@ class App extends React.Component {
         <Header toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox} loggedInUser={loggedInUser} logOutUser={this.logOutUser}/>
         <Router>
           <AllArticles path="/"/>
-          <SingleArticle path="/article/:article_id"/>
+          <SingleArticle path="/article/:article_id" loggedInUser={loggedInUser}/>
           <Recipes path="/recipes"/>
           <Reviews path="/reviews"/>
           <TopFive path="/top5"/>

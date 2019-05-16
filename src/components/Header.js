@@ -20,13 +20,13 @@ function Header ({ toggleLogInBox, toggleSignUpBox, loggedInUser, logOutUser }) 
                     </div>
                 )}
             <ul className="navBar">
-                <li id="navBarListItem" key="home"><Link to="/">Home</Link></li>
-                <li id="navBarListItem" key="recipes"><Link to="/recipes">Recipes</Link></li>
-                <li id="navBarListItem" key="reviews"><Link to="/reviews">Reviews</Link></li>
-                <li id="navBarListItem" key="top5"><Link to="/top5">Top 5</Link></li>
-                <li id="navBarListItem" key="chef"><Link to="/chef">Chef's Table</Link></li>
-                <li id="navBarListItem" key="healthy"><Link to="/healthy">Healthy Living</Link></li>
-                <li id="navBarListItem" key="treats"><Link to="/treats">Treat Yo' Self</Link></li>
+                <li id="navBarListItem" key="home"><Link to="/">home</Link></li>
+                <li id="navBarListItem" key="recipes"><Link to="/recipes">recipes</Link></li>
+                <li id="navBarListItem" key="reviews"><Link to="/reviews">reviews</Link></li>
+                <li id="navBarListItem" key="top5"><Link to="/top5">top 5</Link></li>
+                <li id="navBarListItem" key="chef"><Link to="/chef">chef's table</Link></li>
+                <li id="navBarListItem" key="healthy"><Link to="/healthy">healthy living</Link></li>
+                <li id="navBarListItem" key="treats"><Link to="/treats">treat yo' self</Link></li>
             </ul>
         </div>
     )
