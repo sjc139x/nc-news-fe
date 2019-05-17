@@ -11,8 +11,9 @@ import Healthy from './pages/Healthy';
 import Treats from './pages/Treats';
 import SingleArticle from './pages/SingleArticle';
 import Profile from './pages/Profile';
-import { getUserInfo } from './api-interactions';
 import LogInOverlay from './components/LogInOverlay';
+import Error from './pages/Error';
+import { getUserInfo } from './api-interactions';
 
 class App extends React.Component {
   state = {
@@ -38,6 +39,7 @@ class App extends React.Component {
           <Healthy path="/healthy"/>
           <Treats path="/treats"/>
           <Profile path="/profile/:username" />
+          <Error default path="oops" />
         </Router>
         {logInButtonClicked && <LogInOverlay toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox} logInUser={this.logInUser} handleTyping={this.handleTyping} usernameInput={usernameInput} errorOnLogIn={errorOnLogIn} />}
       </div>

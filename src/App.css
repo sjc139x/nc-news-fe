@@ -197,3 +197,8 @@ ul {
   height: 40px;
   margin: 5px;
 }
+
+#error-potato {
+  width: 500px;
+  object-fit: unset
+}

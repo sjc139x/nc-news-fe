@@ -1,6 +1,7 @@
 import React from 'react';
-import { getUserInfo, getArticlesByAuthor } from '../api-interactions';
 import ArticleGrid from '../components/ArticleGrid';
+import { navigate } from '@reach/router';
+import { getUserInfo, getArticlesByAuthor } from '../api-interactions';
 
 class Profile extends React.Component {
     state = {
@@ -36,6 +37,12 @@ class Profile extends React.Component {
         getUserInfo(username)
         .then(userInfo => {
             this.setState({ userInfo });
+        })
+        .catch(({ response }) => {
+            navigate("/oops", { replace: true, state: {
+                code: response.status,
+                msg: response.data.msg
+            }});
         });
 
         getArticlesByAuthor(username)

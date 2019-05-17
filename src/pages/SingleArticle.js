@@ -2,8 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import CommentGrid from '../components/CommentGrid';
 import Voting from '../components/Voting';
+import { navigate } from '@reach/router';
 
-//could i move the comments out of here?
+//this component is too big -- move comments out on refactor
 class SingleArticle extends React.Component {
     state = {
         article: null,
@@ -38,6 +39,12 @@ class SingleArticle extends React.Component {
         axios.get(`https://nc-news-sjc.herokuapp.com/api/articles/${article_id}`)
         .then(({ data: { article } }) => {
             this.setState({ article });
+        })
+        .catch(({ response }) => {
+            navigate("/oops", { replace: true, state: {
+                code: response.status,
+                msg: response.data.msg
+            }});
         });
 
         axios.get(`https://nc-news-sjc.herokuapp.com/api/articles/${article_id}/comments`)
