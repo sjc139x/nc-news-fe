@@ -3,7 +3,8 @@ import axios from 'axios';
 
 class Voting extends React.Component {
     state = {
-        voteModifier: 0
+        voteModifier: 0,
+        areButtonsDisabled: false
     }
 
     render () {
@@ -31,6 +32,8 @@ class Voting extends React.Component {
         this.setState(prevState => ({
             voteModifier: prevState.voteModifier + integer
         }));
+
+        this.setState({ areButtonsDisabled: true });
     }
 }
 
