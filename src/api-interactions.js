@@ -1,5 +1,12 @@
 import axios from 'axios';
 
+export const getArticles = (pageNumber) => {
+    return axios.get(`https://nc-news-sjc.herokuapp.com/api/articles?p=${pageNumber}`)
+    .then(({ data: { articles } }) => {
+        return articles;
+    });
+}
+
 export const getArticlesByTopic = topic => {
     return axios.get('https://nc-news-sjc.herokuapp.com/api/articles', { params: {
         topic: topic

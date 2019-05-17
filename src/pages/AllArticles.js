@@ -1,7 +1,7 @@
 import React from 'react';
-import axios from 'axios';
 import ArticleGrid from '../components/ArticleGrid';
 import PageNumbers from '../components/PageNumbers';
+import { getArticles } from '../api-interactions';
 
 class AllArticles extends React.Component {
     state = {
@@ -11,6 +11,7 @@ class AllArticles extends React.Component {
     
     render () {
         const { articles } = this.state;
+        console.log(articles)
         return (
             <div>
                 {articles && <ArticleGrid articles={articles}/>}
@@ -20,15 +21,17 @@ class AllArticles extends React.Component {
     }
 
     componentDidMount () {
-        const { pageNumber } = this.state;
-        axios.get(`https://nc-news-sjc.herokuapp.com/api/articles?p=${pageNumber}`)
-        .then(({ data: { articles } }) => {
-            this.setState({ articles: articles });
+        getArticles(1)
+        .then(articles => {
+            this.setState({ articles });
         });
     }
 
     setPageNumber = (pageNumber) => {
-        console.log(pageNumber);
+        getArticles(pageNumber)
+        .then(articles => {
+            this.setState({ articles });
+        });
     }
 
 };
