@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from '@reach/router';
 
-function LoggedIn (props) {
+function LoggedInTile (props) {
     const { userInfo, logOutUser } = props;
     return (
         <div id="loggedInInfoBox">
@@ -12,4 +12,4 @@ function LoggedIn (props) {
     )
 };
 
-export default LoggedIn;
+export default LoggedInTile;

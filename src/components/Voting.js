@@ -8,16 +8,21 @@ class Voting extends React.Component {
     }
 
     render () {
-        const { loggedInUser, votes } = this.props;
+        const { loggedInUser, votes, type } = this.props;
         let { voteModifier } = this.state;
+        const { areButtonsDisabled } = this.state;
         voteModifier += votes;
         return (
-            <div>
-                <h5 id="voteValue">{voteModifier}</h5>
-                {loggedInUser && <div>
-                    <button type="button" onClick={e => this.changeVotes(1)} className="votingButtons" >YUM</button>
-                    <button type="button" onClick={e => this.changeVotes(-1)} className="votingButtons" >YUCK</button>
-                </div>}
+            <div className="votingTile">
+                {loggedInUser && <button type="button" disabled={areButtonsDisabled} onClick={e => this.changeVotes(1)} className="votingButtons" >YUM</button>}
+
+                {(voteModifier === 0) && <h5 id="voteValue">• no votes •</h5>}
+                {(voteModifier === 1) && <h5 id="voteValue">• {voteModifier} person liked this {type.slice(0, -1)} •</h5>}
+                {(voteModifier === -1) && <h5 id="voteValue">• {Math.abs(voteModifier)} person disliked this {type.slice(0, -1)} •</h5>}
+                {(voteModifier > 1) && <h5 id="voteValue">• {voteModifier} people liked this {type.slice(0, -1)} •</h5>}
+                {(voteModifier < -1) && <h5 id="voteValue">• {Math.abs(voteModifier)} people disliked this {type.slice(0, -1)} •</h5>}
+                
+                {loggedInUser && <button type="button" disabled={areButtonsDisabled} onClick={e => this.changeVotes(-1)} className="votingButtons" >YUCK</button>}
             </div>
         )
     }

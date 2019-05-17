@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
-import LoggedIn from './LoggedIn';
+import LoggedIn from './LoggedInTile';
 
 function Header ({ toggleLogInBox, toggleSignUpBox, loggedInUser, logOutUser }) {
     return (
