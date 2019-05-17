@@ -1,7 +1,7 @@
 import React from 'react';
 import ArticleGrid from '../components/ArticleGrid';
 import PageNumbers from '../components/PageNumbers';
-import Search from '../components/Search';
+import SortArticles from '../components/SortArticles';
 import { getArticles, getArticlesBySort } from '../api-interactions';
 
 class AllArticles extends React.Component {
@@ -13,7 +13,7 @@ class AllArticles extends React.Component {
         const { articles } = this.state;
         return (
             <div>
-                <Search sortArticles={this.sortArticles}/>
+                <SortArticles sortArticles={this.sortArticles}/>
                 {articles && <ArticleGrid articles={articles}/>}
                 <PageNumbers paginateArticles={this.paginateArticles} />
             </div>

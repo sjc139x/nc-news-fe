@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Search ({ sortArticles }) {
+function SortArticles ({ sortArticles }) {
     return (
         <select onChange={e => {
             const input = e.target.value.split('/');
@@ -14,4 +14,4 @@ function Search ({ sortArticles }) {
     )
 };
 
-export default Search;
+export default SortArticles;

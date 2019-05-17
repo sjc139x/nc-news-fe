@@ -5,7 +5,6 @@
 
 .singleArticle {
   text-align: left;
-  width: 1000px;
   height: auto;
   margin: 0 auto;
 }
@@ -64,10 +63,11 @@
 }
 
 #logo {
-  width: 300px;
+  width: 240px;
   height: auto;
   margin-right: 1000px;
   float: left;
+  flex: 1;
 }
 
 .navBar {
@@ -144,28 +144,28 @@ ul {
 }
 
 .loggedInUserImage {
-  width: 45px;
+  width: 35px;
   height: auto;
 }
 
 #loggedInInfoBox {
   display: inline-block;
-  width: 100px;
+  width: 85px;
   position: absolute;
   top: 20px;
   right: 0px;
 }
 
 #welcomeBackText {
-  font-size: 11px;
-  margin: 2px;
-  padding-bottom: 2px;
+  font-size: 10px;
+  margin: 0px;
+  padding: 1px;
 }
 
 #userAccountButtons {
   position: absolute;
-  top: 40px;
-  right: 20px;
+  top: 30px;
+  right: 15px;
 }
 
 .commentButton {
