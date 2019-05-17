@@ -31,3 +31,13 @@ export const getUserInfo = username => {
         return user;
     });
 }
+
+export const getArticlesBySort = (column, order) => {
+    return axios.get('https://nc-news-sjc.herokuapp.com/api/articles', { params: {
+        sort_by: column,
+        order: order
+    }})
+    .then(({ data: { articles } }) => {
+        return articles;
+    })
+}
