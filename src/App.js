@@ -14,19 +14,21 @@ import Profile from './pages/Profile';
 import LogInOverlay from './components/LogInOverlay';
 import Error from './pages/Error';
 import NewArticle from './pages/NewArticle'
-import { getUserInfo } from './api-interactions';
+import SignUpOverlay from './components/SignUpOverlay';
+import { getUserInfo, postUserInfo } from './api-interactions';
 
 class App extends React.Component {
   state = {
     logInButtonClicked: false,
-    signUpButtonClicked: false,
     usernameInput: 'username →',
     loggedInUser: null,
-    errorOnLogIn: false
+    errorOnRequest: false,
+    signUpButtonClicked: false,
+    signUp_usernameInput: 'username →'
   }
   
   render () {
-    const { logInButtonClicked, signUpButtonClicked, usernameInput, loggedInUser, errorOnLogIn } = this.state;
+    const { logInButtonClicked, signUpButtonClicked, usernameInput, loggedInUser, errorOnRequest } = this.state;
     return (
       <div className="App">
         <Header toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox} loggedInUser={loggedInUser} logOutUser={this.logOutUser}/>
@@ -43,7 +45,8 @@ class App extends React.Component {
           <NewArticle path="new-article" />
           <Error default path="oops" />
         </Router>
-        {logInButtonClicked && <LogInOverlay toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox} logInUser={this.logInUser} handleTyping={this.handleTyping} usernameInput={usernameInput} errorOnLogIn={errorOnLogIn} handleClick={this.handleClick} />}
+        {logInButtonClicked && <LogInOverlay toggleLogInBox={this.toggleLogInBox} logInUser={this.logInUser} handleTyping={this.handleTyping} handleClick={this.handleClick} usernameInput={usernameInput} errorOnRequest={errorOnRequest} />}
+        {signUpButtonClicked && <SignUpOverlay toggleSignUpBox={this.toggleSignUpBox} signUpUser={this.signUpUser} handleTyping={this.handleTyping} handleClick={this.handleClick} usernameInput={usernameInput} errorOnRequest={errorOnRequest} />}
       </div>
     );
   }
@@ -63,12 +66,12 @@ class App extends React.Component {
 
   handleTyping = (event) => {
     this.setState({ usernameInput: event.target.value });
-    this.setState({ errorOnLogIn: false });
+    this.setState({ errorOnRequest: false });
   }
 
   logInUser = (event) => {
-    event.preventDefault();
     const { usernameInput } = this.state;
+    event.preventDefault();
     getUserInfo(usernameInput)
     .then(user => {
       this.setState({ loggedInUser: user });
@@ -76,12 +79,26 @@ class App extends React.Component {
       this.toggleLogInBox();
     })
     .catch(error => {
-      this.setState({ errorOnLogIn: true });
+      this.setState({ errorOnRequest: true });
     })
   }
 
   logOutUser = () => {
     this.setState({ loggedInUser: null });
+  }
+
+  signUpUser = (event) => {
+    const { usernameInput } = this.state;
+    event.preventDefault();
+    postUserInfo(usernameInput)
+    .then(user => {
+      this.setState({ loggedInUser: user });
+      this.setState({ usernameInput: '' });
+      this.toggleSignUpBox();
+    })
+    .catch(error => {
+      this.setState({ errorOnRequest: true });
+    })
   }
 
   handleClick = () => {

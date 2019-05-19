@@ -32,6 +32,16 @@ export const getUserInfo = username => {
     });
 }
 
+export const postUserInfo = (username) => {
+    return axios.post(`https://nc-news-sjc.herokuapp.com/api/users`, {
+        username: username,
+        avatar_url: 'https://i.ibb.co/3hCVGwM/iconfinder-38-456512.png'
+    })
+    .then(({ data: { user } }) => {
+        return user;
+    });
+}
+
 export const getArticlesBySort = (column, order) => {
     return axios.get('https://nc-news-sjc.herokuapp.com/api/articles', { params: {
         sort_by: column,
