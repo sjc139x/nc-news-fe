@@ -75,7 +75,7 @@
   border-bottom: 2px solid black;
   padding: 6px;
   margin-top: 2px;
-  display: inline-block;
+  display: inline-flex;
 }
 
 ul {
@@ -127,7 +127,6 @@ ul {
 .modal {
     width: 300px;
     height: 230px;
-    line-height: 50px;
     position: fixed;
     top: 50%; 
     left: 50%;
@@ -140,26 +139,33 @@ ul {
 }
 
 #logInButton, #closeButton {
-  margin: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 40px;
 }
 
 .loggedInUserImage {
-  width: 35px;
+  width: 45px;
   height: auto;
+}
+
+.pleaseLogInText {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 #loggedInInfoBox {
   display: inline-block;
-  width: 85px;
+  width: 100px;
   position: absolute;
-  top: 20px;
+  top: 12px;
   right: 0px;
 }
 
 #welcomeBackText {
-  font-size: 10px;
-  margin: 0px;
-  padding: 1px;
+  font-size: 11px;
+  margin: 4px;
+  margin-bottom: 6px;
 }
 
 #userAccountButtons {
@@ -218,4 +224,23 @@ ul {
   height: auto;
   display: inline-block;
   position: relative;
+}
+
+#article-title, #article-body {
+  width: 700px;
+  margin: 10px;
+}
+
+#article-body {
+  height: 300px;
+}
+
+#postArticle-button {
+  margin: 10px;
+  margin-bottom: 150px;
+}
+
+#newArticle-header {
+  text-align: left;
+  margin-left: 357px;
 }

@@ -4,7 +4,6 @@ import CommentGrid from '../components/CommentGrid';
 import Voting from '../components/Voting';
 import { navigate } from '@reach/router';
 
-//this component is too big -- move comments out on refactor
 class SingleArticle extends React.Component {
     state = {
         article: null,

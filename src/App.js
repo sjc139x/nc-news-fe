@@ -13,6 +13,7 @@ import SingleArticle from './pages/SingleArticle';
 import Profile from './pages/Profile';
 import LogInOverlay from './components/LogInOverlay';
 import Error from './pages/Error';
+import NewArticle from './pages/NewArticle'
 import { getUserInfo } from './api-interactions';
 
 class App extends React.Component {
@@ -39,6 +40,7 @@ class App extends React.Component {
           <Healthy path="/healthy"/>
           <Treats path="/treats"/>
           <Profile path="/profile/:username" />
+          <NewArticle path="new-article" />
           <Error default path="oops" />
         </Router>
         {logInButtonClicked && <LogInOverlay toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox} logInUser={this.logInUser} handleTyping={this.handleTyping} usernameInput={usernameInput} errorOnLogIn={errorOnLogIn} />}
