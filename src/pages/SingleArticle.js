@@ -16,13 +16,13 @@ class SingleArticle extends React.Component {
         const { loggedInUser } = this.props;
         return (
             <>
-            <img src="https://i.ibb.co/GppkmH1/IMG-20190205-142516903.jpg" alt="breakfast" id="SingleArticle-image"/>
-            <div className="singleArticle">
+            <img src="https://i.ibb.co/GppkmH1/IMG-20190205-142516903.jpg" alt="breakfast" className="SingleArticle-TopImage"/>
+            <div className="SingleArticle-Container">
 
                 {article && <div>
-                    <h3 id="articleTitle">{article.title}</h3>
-                    <p id="articleBody">{article.body}</p>
-                    <Voting loggedInUser={loggedInUser} type={'articles'} id={article.article_id} votes={article.votes}/>
+                    <h3 className="SingleArticle-Title">{article.title}</h3>
+                    <p className="SingleArticle-MainBody">{article.body}</p>
+                    <Voting loggedInUser={loggedInUser} type={'articles'} className={`SingleArticle-${article.article_id}`} votes={article.votes}/>
                 </div>}
 
                 {comments && <CommentGrid comments={comments} loggedInUser={loggedInUser} commentInput={commentInput} addComment={this.addComment} handleCommentTyping={this.handleCommentTyping} deleteOwnComment={this.deleteOwnComment} handleClick={this.handleClick} />}
