@@ -102,6 +102,7 @@ class App extends React.Component {
     postUserInfo(usernameInput)
     .then(user => {
       this.setState({ loggedInUser: user });
+      localStorage.setItem("loggedInUser", JSON.stringify(user));
       this.setState({ usernameInput: '' });
       this.toggleSignUpBox();
     })
