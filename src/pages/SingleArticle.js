@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import CommentGrid from '../components/CommentGrid';
 import Voting from '../components/Voting';
+import { removeArticle } from '../api-interactions';
 import { navigate } from '@reach/router';
 
 class SingleArticle extends React.Component {

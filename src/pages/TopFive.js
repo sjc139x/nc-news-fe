@@ -12,7 +12,7 @@ class TopFive extends React.Component {
         const { loggedInUser } = this.props;
         return (
             <div>
-                {topFives && <ArticleGrid articles={topFives} loggedInUser={loggedInUser} deleteArticle={this.deleteArticle} />}
+                {topFives && <ArticleGrid articles={topFives} loggedInUser={loggedInUser} deleteOwnArticle={this.deleteOwnArticle} />}
             </div>
         )
     }
@@ -25,7 +25,7 @@ class TopFive extends React.Component {
     }
 
     //this works but perhaps should be more optimistic? also how to not mess up pagination?
-    deleteArticle = article_id => {
+    deleteOwnArticle = article_id => {
         removeArticle(article_id)
         .then(res => {
             this.setState(prevState => ({

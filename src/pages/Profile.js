@@ -1,7 +1,7 @@
 import React from 'react';
 import ArticleGrid from '../components/ArticleGrid';
 import { navigate } from '@reach/router';
-import { getUserInfo, getArticlesByAuthor } from '../api-interactions';
+import { getUserInfo, getArticlesByAuthor, removeArticle } from '../api-interactions';
 
 class Profile extends React.Component {
     state = {
@@ -11,6 +11,7 @@ class Profile extends React.Component {
     
     render () {
         const { userInfo, userArticles } = this.state;
+        const { loggedInUser } = this.props;
         return (
             <>
             <div className="profileTile">
@@ -26,10 +27,12 @@ class Profile extends React.Component {
                 )}
             </div>
                 <h3 id="myArticles">My Articles...</h3>
-                {userArticles && <ArticleGrid articles={userArticles} />}
+                {userArticles && <ArticleGrid articles={userArticles} loggedInUser={loggedInUser} deleteOwnArticle={this.deleteOwnArticle} />}
             </>
         )
     }
+
+    // {articles && <ArticleGrid articles={articles} loggedInUser={loggedInUser} deleteArticle={this.deleteArticle} />}
 
     componentDidMount () {
         const { username } = this.props;
@@ -50,6 +53,16 @@ class Profile extends React.Component {
             this.setState({ userArticles });
         })
     }
+
+    deleteOwnArticle = (article_id) => {
+        removeArticle(article_id)
+        .then(res => {
+            this.setState(prevState => ({
+                userArticles: prevState.userArticles.filter(userArticle => userArticle.article_id !== article_id)
+            }))
+        })
+    }
+
 }
 
 export default Profile;
