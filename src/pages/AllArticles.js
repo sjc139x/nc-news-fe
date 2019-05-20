@@ -17,7 +17,7 @@ class AllArticles extends React.Component {
             <div>
                 <SortArticles sortArticles={this.sortArticles}/>
                 {loggedInUser && <Link to="new-article"><button className="newArticle-button">Post New Article</button></Link>}
-                {articles && <ArticleGrid articles={articles} loggedInUser={loggedInUser} deleteArticle={this.deleteArticle} />}
+                {articles && <ArticleGrid articles={articles} loggedInUser={loggedInUser} deleteOwnArticle={this.deleteOwnArticle} />}
                 <PageNumbers paginateArticles={this.paginateArticles} />
             </div>
         )
@@ -45,7 +45,7 @@ class AllArticles extends React.Component {
     }
 
     //this works but perhaps should be more optimistic? also how to not mess up pagination?
-    deleteArticle = article_id => {
+    deleteOwnArticle = article_id => {
         removeArticle(article_id)
         .then(res => {
             this.setState(prevState => ({

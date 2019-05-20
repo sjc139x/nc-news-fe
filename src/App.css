@@ -1,3 +1,55 @@
+/* ArticleTile.js */
+
+.ArticleTile-Image {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.ArticleTile-Container {
+  position: relative;
+  height: 250px;
+  width: 250px;
+}
+
+.ArticleTile-Text {
+  text-align: left;
+  position: absolute;
+  bottom: 8px;
+  left: 6px;
+  color: white;
+  text-shadow: 0px 0px 3px #000;
+}
+
+.ArticleTile-Title {
+  font-size: 20px;
+}
+
+.ArticleTile-Title, .ArticleTile-Author {
+  color: white;
+  text-decoration: underline;
+  margin: 2px;
+  margin-left: 4px;
+}
+
+.ArticleTile-Author, .ArticleTile-Date {
+  display: inline-block;
+  font-size: 14px;
+}
+
+.ArticleTile-Date {
+  padding-right: 8px;
+  margin-left: 4px;
+}
+
+.ArticleTile-Author {
+  padding-left: 8px;
+}
+
+/* ------------------------------------------------------------- */
+
+
 .App {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -20,10 +72,6 @@
   text-align: center;
 }
 
-.articleTileTitle, .articleAuthor {
-  color: white;
-  text-decoration: underline;
-}
 
 .avatarImage {
   width: 200px;
@@ -94,26 +142,6 @@ ul {
   padding-right: 5px;
 }
 
-#articleTileImage {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-}
-
-#articleTileContainer {
-  position: relative;
-  height: 250px;
-  width: 250px;
-}
-
-#articleTileText {
-  text-align: left;
-  position: absolute;
-  bottom: 8px;
-  left: 6px;
-  right: 6px;
-  color: white;
-}
 
 .overlay, .signup-overlay {
     position: fixed;
