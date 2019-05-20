@@ -1,6 +1,6 @@
 import React from 'react';
-import { getArticlesByTopic } from '../api-interactions';
 import ArticleGrid from '../components/ArticleGrid';
+import { getArticlesByTopic, removeArticle } from '../api-interactions';
 
 class ChefLife extends React.Component {
     state = {
@@ -12,7 +12,7 @@ class ChefLife extends React.Component {
         const { loggedInUser } = this.props;
         return (
             <div>
-                {chefLifeContent && <ArticleGrid articles={chefLifeContent} loggedInUser={loggedInUser} />}
+                {chefLifeContent && <ArticleGrid articles={chefLifeContent} loggedInUser={loggedInUser} deleteArticle={this.deleteArticle} />}
             </div>
         )
     }
@@ -21,6 +21,16 @@ class ChefLife extends React.Component {
         getArticlesByTopic('chef life')
         .then(chefLifeContent => {
             this.setState({ chefLifeContent })
+        });
+    }
+
+    //this works but perhaps should be more optimistic? also how to not mess up pagination?
+    deleteArticle = article_id => {
+        removeArticle(article_id)
+        .then(res => {
+            this.setState(prevState => ({
+                chefLifeContent: prevState.chefLifeContent.filter(chefLifeArticle => chefLifeArticle.article_id !== article_id)
+            }))
         });
     }
 

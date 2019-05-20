@@ -3,7 +3,7 @@ import ArticleGrid from '../components/ArticleGrid';
 import PageNumbers from '../components/PageNumbers';
 import SortArticles from '../components/SortArticles';
 import { Link } from '@reach/router';
-import { getArticles, getArticlesBySort } from '../api-interactions';
+import { getArticles, getArticlesBySort, removeArticle } from '../api-interactions';
 
 class AllArticles extends React.Component {
     state = {
@@ -17,7 +17,7 @@ class AllArticles extends React.Component {
             <div>
                 <SortArticles sortArticles={this.sortArticles}/>
                 {loggedInUser && <Link to="new-article"><button className="newArticle-button">Post New Article</button></Link>}
-                {articles && <ArticleGrid articles={articles} loggedInUser={loggedInUser} />}
+                {articles && <ArticleGrid articles={articles} loggedInUser={loggedInUser} deleteArticle={this.deleteArticle} />}
                 <PageNumbers paginateArticles={this.paginateArticles} />
             </div>
         )
@@ -30,7 +30,7 @@ class AllArticles extends React.Component {
         });
     }
 
-    paginateArticles = (pageNumber) => {
+    paginateArticles = pageNumber => {
         getArticles(pageNumber)
         .then(articles => {
             this.setState({ articles });
@@ -41,6 +41,16 @@ class AllArticles extends React.Component {
         getArticlesBySort(column, order)
         .then(articles => {
             this.setState({ articles });
+        });
+    }
+
+    //this works but perhaps should be more optimistic? also how to not mess up pagination?
+    deleteArticle = article_id => {
+        removeArticle(article_id)
+        .then(res => {
+            this.setState(prevState => ({
+                articles: prevState.articles.filter(article => article.article_id !== article_id)
+            }))
         });
     }
 

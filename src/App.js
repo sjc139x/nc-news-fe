@@ -33,6 +33,7 @@ class App extends React.Component {
       <div className="App">
         <Header toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox} loggedInUser={loggedInUser} logOutUser={this.logOutUser}/>
         <Router>
+          {/* have had to repeat functionality given routing below, could this be done better? */}
           <AllArticles path="/" loggedInUser={loggedInUser}/>
           <SingleArticle path="/article/:article_id" loggedInUser={loggedInUser}/>
           <Recipes path="/recipes" loggedInUser={loggedInUser} />
