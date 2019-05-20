@@ -1,10 +1,22 @@
 import axios from 'axios';
 
-export const getArticles = (pageNumber) => {
+export const getArticles = pageNumber => {
     return axios.get(`https://nc-news-sjc.herokuapp.com/api/articles?p=${pageNumber}`)
     .then(({ data: { articles } }) => {
         return articles;
     });
+}
+
+export const postArticle = (title, body, author, topic) => {
+    return axios.post('https://nc-news-sjc.herokuapp.com/api/articles', {
+        title: title,
+        body: body,
+        author: author,
+        topic: topic
+    })
+    .then(({ data: { article } }) => {
+        return article;
+    })
 }
 
 export const getArticlesByTopic = topic => {
@@ -32,7 +44,7 @@ export const getUserInfo = username => {
     });
 }
 
-export const postUserInfo = (username) => {
+export const postUserInfo = username => {
     return axios.post(`https://nc-news-sjc.herokuapp.com/api/users`, {
         username: username,
         avatar_url: 'https://i.ibb.co/3hCVGwM/iconfinder-38-456512.png'

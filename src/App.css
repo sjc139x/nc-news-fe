@@ -241,7 +241,10 @@ ul {
   margin-bottom: 150px;
 }
 
-#newArticle-header {
-  text-align: left;
-  margin-left: 357px;
+.searchBar {
+  margin: 10px;
+}
+
+.newArticle-button {
+  margin: 10px;
 }

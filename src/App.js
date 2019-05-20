@@ -33,7 +33,7 @@ class App extends React.Component {
       <div className="App">
         <Header toggleLogInBox={this.toggleLogInBox} toggleSignUpBox={this.toggleSignUpBox} loggedInUser={loggedInUser} logOutUser={this.logOutUser}/>
         <Router>
-          <AllArticles path="/"/>
+          <AllArticles path="/" loggedInUser={loggedInUser}/>
           <SingleArticle path="/article/:article_id" loggedInUser={loggedInUser}/>
           <Recipes path="/recipes"/>
           <Reviews path="/reviews"/>
@@ -42,7 +42,7 @@ class App extends React.Component {
           <Healthy path="/healthy"/>
           <Treats path="/treats"/>
           <Profile path="/profile/:username" />
-          <NewArticle path="new-article" />
+          <NewArticle path="new-article" loggedInUser={loggedInUser} />
           <Error default path="oops" />
         </Router>
         {logInButtonClicked && <LogInOverlay toggleLogInBox={this.toggleLogInBox} logInUser={this.logInUser} handleTyping={this.handleTyping} handleClick={this.handleClick} usernameInput={usernameInput} errorOnRequest={errorOnRequest} />}
@@ -101,6 +101,7 @@ class App extends React.Component {
     event.preventDefault();
     postUserInfo(usernameInput)
     .then(user => {
+      console.log(user)
       this.setState({ loggedInUser: user });
       localStorage.setItem("loggedInUser", JSON.stringify(user));
       this.setState({ usernameInput: '' });

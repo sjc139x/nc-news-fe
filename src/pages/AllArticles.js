@@ -2,6 +2,7 @@ import React from 'react';
 import ArticleGrid from '../components/ArticleGrid';
 import PageNumbers from '../components/PageNumbers';
 import SortArticles from '../components/SortArticles';
+import { Link } from '@reach/router';
 import { getArticles, getArticlesBySort } from '../api-interactions';
 
 class AllArticles extends React.Component {
@@ -11,9 +12,11 @@ class AllArticles extends React.Component {
     
     render () {
         const { articles } = this.state;
+        const { loggedInUser } = this.props;
         return (
             <div>
                 <SortArticles sortArticles={this.sortArticles}/>
+                {loggedInUser && <Link to="new-article"><button className="newArticle-button">Post New Article</button></Link>}
                 {articles && <ArticleGrid articles={articles}/>}
                 <PageNumbers paginateArticles={this.paginateArticles} />
             </div>

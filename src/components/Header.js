@@ -27,7 +27,6 @@ function Header ({ toggleLogInBox, toggleSignUpBox, loggedInUser, logOutUser }) 
                 <li id="navBarListItem" key="chef"><Link to="/chef">chef's table</Link></li>
                 <li id="navBarListItem" key="healthy"><Link to="/healthy">healthy living</Link></li>
                 <li id="navBarListItem" key="treats"><Link to="/treats">treat yo' self</Link></li>
-                {loggedInUser && <li id="navBarListItem" key="newArticle"><Link to="new-article">post new article</Link></li>}
             </ul>
         </div>
     )
