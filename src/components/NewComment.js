@@ -1,11 +1,10 @@
 import React from 'react';
 
-function NewCommment ({ addComment, handleCommentTyping, commentInput }) {
+function NewCommment ({ addComment, handleCommentTyping, commentInput, handleClick }) {
     return (
         <form className="commentSection">
-            <h4>Have your say....</h4>
-            <textarea type="text" value={commentInput} onChange={handleCommentTyping} className="commentBox"/>
-            <button type="button" className="commentButton" onClick={addComment}>COMMENT</button>
+            <input type="text" value={commentInput} onClick={handleClick} onChange={handleCommentTyping} className="commentBox"/>
+            <button type="submit" className="commentButton" onClick={addComment}>COMMENT</button>
         </form>
     )
 };

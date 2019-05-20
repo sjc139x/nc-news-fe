@@ -6,7 +6,7 @@ import { getArticles, getArticlesBySort } from '../api-interactions';
 
 class AllArticles extends React.Component {
     state = {
-        articles: null,
+        articles: null
     }
     
     render () {

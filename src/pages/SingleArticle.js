@@ -8,7 +8,7 @@ class SingleArticle extends React.Component {
     state = {
         article: null,
         comments: null,
-        commentInput: ''
+        commentInput: 'have your say →'
     }
 
     render () {
@@ -25,7 +25,7 @@ class SingleArticle extends React.Component {
                     <Voting loggedInUser={loggedInUser} type={'articles'} id={article.article_id} votes={article.votes}/>
                 </div>}
 
-                {comments && <CommentGrid comments={comments} loggedInUser={loggedInUser} commentInput={commentInput} addComment={this.addComment} handleCommentTyping={this.handleCommentTyping} deleteOwnComment={this.deleteOwnComment} />}
+                {comments && <CommentGrid comments={comments} loggedInUser={loggedInUser} commentInput={commentInput} addComment={this.addComment} handleCommentTyping={this.handleCommentTyping} deleteOwnComment={this.deleteOwnComment} handleClick={this.handleClick} />}
 
             </div>
             </>
@@ -52,13 +52,18 @@ class SingleArticle extends React.Component {
         });
     }
 
+    handleClick = () => {
+        this.setState({ commentInput: '' });
+    }
+
     handleCommentTyping = (event) => {
         this.setState({ commentInput: event.target.value });
     }
 
-    addComment = () => {
+    addComment = (event) => {
         const { article_id, loggedInUser } = this.props;
         const { commentInput } = this.state;
+        event.preventDefault();
 
         axios.post(`https://nc-news-sjc.herokuapp.com/api/articles/${article_id}/comments`, {
             username: loggedInUser.username,
