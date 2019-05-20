@@ -1,3 +1,17 @@
+/* App.js */
+
+.App {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+
+
 /* ArticleTile.js */
 
 .ArticleTile-Image {
@@ -17,7 +31,8 @@
   text-align: left;
   position: absolute;
   bottom: 8px;
-  left: 6px;
+  left: 16px;
+  right: 16px;
   color: white;
   text-shadow: 0px 0px 3px #000;
 }
@@ -47,13 +62,75 @@
   padding-left: 8px;
 }
 
-/* ------------------------------------------------------------- */
 
 
-.App {
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+/* Header.js */
+
+.Header-Logo {
+  width: 240px;
+  height: auto;
+  margin-right: 1000px;
+  float: left;
+  flex: 1;
 }
+
+.Header-NavBar {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 6px;
+  margin-top: 2px;
+  position: relative;
+}
+
+.Header-NavBarListItems {
+  display: inline-block;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.Header-UserAccountButtons {
+  position: absolute;
+  top: 30px;
+  right: 15px;
+  z-index: 10;
+}
+
+
+
+/* LoggedInTile.js */
+
+.LoggedInTile-AvatarImage {
+  width: 35px;
+  height: auto;
+}
+
+.LoggedInTile-Container {
+  display: inline-block;
+  width: 80px;
+  position: absolute;
+  top: 15px;
+  right: 0px;
+  z-index: 10;
+}
+
+.LoggedInTile-WelcomeBackText {
+  font-size: 10px;
+  margin: 0px;
+  margin-bottom: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .singleArticle {
   text-align: left;
@@ -110,33 +187,6 @@
   padding-bottom: 30px;
 }
 
-#logo {
-  width: 240px;
-  height: auto;
-  margin-right: 1000px;
-  float: left;
-  flex: 1;
-}
-
-.navBar {
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-  padding: 6px;
-  margin-top: 2px;
-  display: inline-flex;
-}
-
-ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-#navBarListItem {
-  display: inline-block;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
 #articleTileListItem {
   display: inline-block;
   padding-right: 5px;
@@ -172,35 +222,11 @@ ul {
   margin-top: 40px;
 }
 
-.loggedInUserImage {
-  width: 45px;
-  height: auto;
-}
-
 .pleaseLogInText, .pleaseSignUpText {
   margin-top: 40px;
   margin-bottom: 45px;
 }
 
-#loggedInInfoBox {
-  display: inline-block;
-  width: 100px;
-  position: absolute;
-  top: 12px;
-  right: 0px;
-}
-
-#welcomeBackText {
-  font-size: 11px;
-  margin: 4px;
-  margin-bottom: 6px;
-}
-
-#userAccountButtons {
-  position: absolute;
-  top: 30px;
-  right: 15px;
-}
 
 .commentButton {
   display: flex;
