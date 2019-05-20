@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import CommentGrid from '../components/CommentGrid';
 import Voting from '../components/Voting';
 import { navigate } from '@reach/router';

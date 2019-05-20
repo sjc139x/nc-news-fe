@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { alterVotes } from '../api-interactions';
 
 class Voting extends React.Component {

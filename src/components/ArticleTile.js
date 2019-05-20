@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
+import moment from 'moment';
 
 function ArticleTile ({ article, loggedInUser, deleteOwnArticle }) {
     return (
@@ -12,7 +13,7 @@ function ArticleTile ({ article, loggedInUser, deleteOwnArticle }) {
                 <Link to={`/article/${article.article_id}`}>
                     <h4 className="articleTileTitle">{article.title}</h4>
                 </Link>
-                <h5 className="articleDate">{article.created_at}</h5>
+                <h5 className="articleDate">{moment(article.created_at).format("MMM Do YY")}</h5>
                 <Link to={`/profile/${article.author}`}>
                     <h5 className="articleAuthor">{article.author}</h5>
                 </Link>
