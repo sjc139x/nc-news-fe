@@ -9,9 +9,10 @@ class Recipes extends React.Component {
 
     render () {
         const { recipes } = this.state;
+        const { loggedInUser } = this.props;
         return (
             <div>
-                {recipes && <ArticleGrid articles={recipes}/>}
+                {recipes && <ArticleGrid articles={recipes} loggedInUser={loggedInUser} />}
             </div>
         )
     }

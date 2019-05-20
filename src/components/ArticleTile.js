@@ -1,11 +1,15 @@
 import React from 'react';
 import { Link } from '@reach/router';
 
-function ArticleTile ({ article }) {
+function ArticleTile ({ article, loggedInUser }) {
     return (
         <div id="articleTileContainer">
             <img src="https://cdn.pixabay.com/photo/2010/12/13/10/05/background-2277_1280.jpg" alt="berries" id="articleTileImage"/>
             <div id="articleTileText">
+                {console.log(loggedInUser)}
+                {loggedInUser && (article.author === loggedInUser.username) && (
+                    <button type="button" id="deleteArticleButton">DELETE</button>
+                )}
                 <Link to={`/article/${article.article_id}`}>
                     <h4 className="articleTileTitle">{article.title}</h4>
                 </Link>

@@ -9,9 +9,10 @@ class ChefLife extends React.Component {
 
     render () {
         const { chefLifeContent } = this.state;
+        const { loggedInUser } = this.props;
         return (
             <div>
-                {chefLifeContent && <ArticleGrid articles={chefLifeContent}/>}
+                {chefLifeContent && <ArticleGrid articles={chefLifeContent} loggedInUser={loggedInUser} />}
             </div>
         )
     }

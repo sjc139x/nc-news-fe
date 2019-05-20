@@ -17,7 +17,7 @@ class AllArticles extends React.Component {
             <div>
                 <SortArticles sortArticles={this.sortArticles}/>
                 {loggedInUser && <Link to="new-article"><button className="newArticle-button">Post New Article</button></Link>}
-                {articles && <ArticleGrid articles={articles}/>}
+                {articles && <ArticleGrid articles={articles} loggedInUser={loggedInUser} />}
                 <PageNumbers paginateArticles={this.paginateArticles} />
             </div>
         )

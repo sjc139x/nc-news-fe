@@ -9,9 +9,10 @@ class Healthy extends React.Component {
 
     render () {
         const { healthyContent } = this.state;
+        const { loggedInUser } = this.props;
         return (
             <div>
-                {healthyContent && <ArticleGrid articles={healthyContent}/>}
+                {healthyContent && <ArticleGrid articles={healthyContent} loggedInUser={loggedInUser} />}
             </div>
         )
     }

@@ -9,9 +9,10 @@ class Reviews extends React.Component {
 
     render () {
         const { reviews } = this.state;
+        const { loggedInUser } = this.props;
         return (
             <div>
-                {reviews && <ArticleGrid articles={reviews}/>}
+                {reviews && <ArticleGrid articles={reviews} loggedInUser={loggedInUser} />}
             </div>
         )
     }

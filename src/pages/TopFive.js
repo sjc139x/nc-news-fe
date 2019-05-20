@@ -9,9 +9,10 @@ class TopFive extends React.Component {
 
     render () {
         const { topFives } = this.state;
+        const { loggedInUser } = this.props;
         return (
             <div>
-                {topFives && <ArticleGrid articles={topFives}/>}
+                {topFives && <ArticleGrid articles={topFives} loggedInUser={loggedInUser} />}
             </div>
         )
     }

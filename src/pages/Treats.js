@@ -9,9 +9,10 @@ class Treats extends React.Component {
 
     render () {
         const { treatContent } = this.state;
+        const { loggedInUser } = this.props;
         return (
             <div>
-                {treatContent && <ArticleGrid articles={treatContent}/>}
+                {treatContent && <ArticleGrid articles={treatContent} loggedInUser={loggedInUser} />}
             </div>
         )
     }

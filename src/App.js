@@ -35,13 +35,13 @@ class App extends React.Component {
         <Router>
           <AllArticles path="/" loggedInUser={loggedInUser}/>
           <SingleArticle path="/article/:article_id" loggedInUser={loggedInUser}/>
-          <Recipes path="/recipes"/>
-          <Reviews path="/reviews"/>
-          <TopFive path="/top5"/>
-          <ChefLife path="/chef"/>
-          <Healthy path="/healthy"/>
-          <Treats path="/treats"/>
-          <Profile path="/profile/:username" />
+          <Recipes path="/recipes" loggedInUser={loggedInUser} />
+          <Reviews path="/reviews" loggedInUser={loggedInUser} />
+          <TopFive path="/top5" loggedInUser={loggedInUser} />
+          <ChefLife path="/chef" loggedInUser={loggedInUser} />
+          <Healthy path="/healthy" loggedInUser={loggedInUser} />
+          <Treats path="/treats" loggedInUser={loggedInUser} />
+          <Profile path="/profile/:username" loggedInUser={loggedInUser} />
           <NewArticle path="new-article" loggedInUser={loggedInUser} />
           <Error default path="oops" />
         </Router>
