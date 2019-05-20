@@ -50,6 +50,13 @@ class App extends React.Component {
       </div>
     );
   }
+
+  componentDidMount () {
+    if (localStorage.hasOwnProperty("loggedInUser")) {
+      let user = JSON.parse(localStorage.getItem("loggedInUser"));
+      this.setState({ loggedInUser: user });
+    }
+  }
   
   toggleLogInBox = () => {
     this.setState(prevState => ({
@@ -75,6 +82,7 @@ class App extends React.Component {
     getUserInfo(usernameInput)
     .then(user => {
       this.setState({ loggedInUser: user });
+      localStorage.setItem("loggedInUser", JSON.stringify(user));
       this.setState({ usernameInput: '' });
       this.toggleLogInBox();
     })
@@ -85,6 +93,7 @@ class App extends React.Component {
 
   logOutUser = () => {
     this.setState({ loggedInUser: null });
+    localStorage.clear("loggedInUser");
   }
 
   signUpUser = (event) => {
