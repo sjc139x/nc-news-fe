@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { alterVotes } from '../api-interactions';
 
 class Voting extends React.Component {
     state = {
@@ -32,9 +33,7 @@ class Voting extends React.Component {
     changeVotes = (integer, direction) => {
         const { type, id } = this.props;
 
-        axios.patch(`https://nc-news-sjc.herokuapp.com/api/${type}/${id}`, {
-            inc_votes: integer
-        });
+        alterVotes(type, id, integer);
         
         this.setState(prevState => ({
             voteModifier: prevState.voteModifier + integer

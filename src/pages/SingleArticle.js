@@ -2,8 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import CommentGrid from '../components/CommentGrid';
 import Voting from '../components/Voting';
-import { removeArticle } from '../api-interactions';
 import { navigate } from '@reach/router';
+import { postComment, getSingleArticle, getComments, removeComment } from '../api-interactions';
 
 class SingleArticle extends React.Component {
     state = {
@@ -35,11 +35,9 @@ class SingleArticle extends React.Component {
 
     componentDidMount () {
         const { article_id } = this.props;
-
-        axios.get(`https://nc-news-sjc.herokuapp.com/api/articles/${article_id}`)
-        .then(({ data: { article } }) => {
-            this.setState({ article });
-        })
+        
+        getSingleArticle(article_id)
+        .then(article => this.setState({ article }))
         .catch(({ response }) => {
             navigate("/oops", { replace: true, state: {
                 code: response.status,
@@ -47,10 +45,8 @@ class SingleArticle extends React.Component {
             }});
         });
 
-        axios.get(`https://nc-news-sjc.herokuapp.com/api/articles/${article_id}/comments`)
-        .then(({ data: { comments } }) => {
-            this.setState({ comments })
-        });
+        getComments(article_id)
+        .then(comments => this.setState({ comments }));
     }
 
     handleClick = () => {
@@ -66,19 +62,17 @@ class SingleArticle extends React.Component {
         const { commentInput } = this.state;
         event.preventDefault();
 
-        axios.post(`https://nc-news-sjc.herokuapp.com/api/articles/${article_id}/comments`, {
-            username: loggedInUser.username,
-            body: commentInput
-        })
-        .then(({ data: { comment } }) => {
+        postComment(article_id, loggedInUser.username, commentInput)
+        .then(comment => {
             this.setState(prevState => ({
                 comments: [comment, ...prevState.comments]
             }));
         });
+       
     }
 
     deleteOwnComment = (comment_id) => {
-        axios.delete(`https://nc-news-sjc.herokuapp.com/api/comments/${comment_id}`)
+        removeComment(comment_id)
         .then(res => {
             this.setState(prevState => ({
                 comments: prevState.comments.filter(comment => comment.comment_id !== comment_id)
