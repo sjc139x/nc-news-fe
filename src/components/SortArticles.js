@@ -2,7 +2,7 @@ import React from 'react';
 
 function SortArticles ({ sortArticles }) {
     return (
-        <select className="searchBar" onChange={e => {
+        <select className="SortArticles-SearchBar" onChange={e => {
             const input = e.target.value.split('/');
             sortArticles(input[0], input[1]);
         }}>

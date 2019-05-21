@@ -15,16 +15,16 @@ class Voting extends React.Component {
         const { isUpvoteButtonDisabled, isDownvoteButtonDisabled } = this.state;
         voteModifier += votes;
         return (
-            <div className="votingTile">
-                {loggedInUser && <button type="button" disabled={isUpvoteButtonDisabled} value="yum" onClick={e => this.changeVotes(1, e.target.value)} className="votingButtons" >YUM</button>}
+            <div className="Voting-Container">
+                {loggedInUser && <button type="button" disabled={isUpvoteButtonDisabled} value="yum" onClick={e => this.changeVotes(1, e.target.value)} className="Voting-UpvoteButton" >YUM</button>}
 
-                {(voteModifier === 0) && <h5 id="voteValue">• no votes •</h5>}
-                {(voteModifier === 1) && <h5 id="voteValue">• {voteModifier} person liked this {type.slice(0, -1)} •</h5>}
-                {(voteModifier === -1) && <h5 id="voteValue">• {Math.abs(voteModifier)} person disliked this {type.slice(0, -1)} •</h5>}
-                {(voteModifier > 1) && <h5 id="voteValue">• {voteModifier} people liked this {type.slice(0, -1)} •</h5>}
-                {(voteModifier < -1) && <h5 id="voteValue">• {Math.abs(voteModifier)} people disliked this {type.slice(0, -1)} •</h5>}
+                {(voteModifier === 0) && <h5 className="Voting-VoteValue">• no votes •</h5>}
+                {(voteModifier === 1) && <h5 className="Voting-VoteValue">• {voteModifier} person liked this {type.slice(0, -1)} •</h5>}
+                {(voteModifier === -1) && <h5 className="Voting-VoteValue">• {Math.abs(voteModifier)} person disliked this {type.slice(0, -1)} •</h5>}
+                {(voteModifier > 1) && <h5 className="Voting-VoteValue">• {voteModifier} people liked this {type.slice(0, -1)} •</h5>}
+                {(voteModifier < -1) && <h5 className="Voting-VoteValue">• {Math.abs(voteModifier)} people disliked this {type.slice(0, -1)} •</h5>}
                 
-                {loggedInUser && <button type="button" disabled={isDownvoteButtonDisabled} value="yuck" onClick={e => this.changeVotes(-1, e.target.value)} className="votingButtons" >YUCK</button>}
+                {loggedInUser && <button type="button" disabled={isDownvoteButtonDisabled} value="yuck" onClick={e => this.changeVotes(-1, e.target.value)} className="Voting-DownvoteButton" >YUCK</button>}
             </div>
         )
     }

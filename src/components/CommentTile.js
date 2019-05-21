@@ -12,16 +12,16 @@ class CommentTile extends React.Component {
         const { comment, loggedInUser, deleteOwnComment } = this.props;
         const { avatar_url } = this.state;
         return (
-            <div className="commentTile">
-                <img src={avatar_url} alt="comment-avatar" className="comment-avatar" />
-                <div id="commentTileText">
+            <div className="CommentTile-Container">
+                <img src={avatar_url} alt="comment-avatar" className="CommentTile-UserAvatar"/>
+                <div className="CommentTile-TextContainer">
                 {loggedInUser && (comment.author === loggedInUser.username) && (
-                    <button type="button" onClick={e => deleteOwnComment(comment.comment_id)} id="deleteCommentButton">DELETE</button>
+                    <button type="button" onClick={e => deleteOwnComment(comment.comment_id)} className="CommentTile-DeleteCommentButton">DELETE</button>
                 )}
                     <Link to={`/profile/${comment.author}`}>
                         <h4>{comment.author}</h4>
                     </Link>
-                    <p id="commentTileBody">{comment.body}</p>
+                    <p className="CommentTile-CommentBody">{comment.body}</p>
                     <Voting loggedInUser={loggedInUser} type={'comments'} id={comment.comment_id} votes={comment.votes}/>
                 </div>
             </div>

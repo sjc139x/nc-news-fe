@@ -14,19 +14,19 @@ class Profile extends React.Component {
         const { loggedInUser } = this.props;
         return (
             <>
-            <div className="profileTile">
+            <div className="ProfileTile-Container">
                 {userInfo && (
                         <>
-                        <img src={userInfo.avatar_url} alt="avatar" className="avatarImage"/>
-                        <div className="profileTileText">
+                        <img src={userInfo.avatar_url} alt="avatar" className="ProfileTile-AvatarImage"/>
+                        <div className="ProfileTile-Text">
                             <h1>{userInfo.username}</h1>
                             <h3>Food Enthusiast</h3>
-                            <p id="profileDesc">I like food a lot, it tastes nice and it also it makes me happy. I love to cook but I do not love to do the washing up. Let's make a deal: if you do the washing up, I'll cook for you.</p>
+                            <p className="ProfileTile-UserDescription">I like food a lot, it tastes nice and it also it makes me happy. I love to cook but I do not love to do the washing up. Let's make a deal: if you do the washing up, I'll cook for you.</p>
                         </div>
                         </>
                 )}
             </div>
-                <h3 id="myArticles">My Articles...</h3>
+                <h3 className="ProfileTile-UserArticles">My Articles...</h3>
                 {userArticles && <ArticleGrid articles={userArticles} loggedInUser={loggedInUser} deleteOwnArticle={this.deleteOwnArticle} />}
             </>
         )

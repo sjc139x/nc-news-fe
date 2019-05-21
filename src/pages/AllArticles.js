@@ -16,7 +16,7 @@ class AllArticles extends React.Component {
         return (
             <div>
                 <SortArticles sortArticles={this.sortArticles}/>
-                {loggedInUser && <Link to="new-article"><button className="newArticle-button">Post New Article</button></Link>}
+                {loggedInUser && <Link to="new-article"><button className="AllArticles-NewArticleButton">Post New Article</button></Link>}
                 {articles && <ArticleGrid articles={articles} loggedInUser={loggedInUser} deleteOwnArticle={this.deleteOwnArticle} />}
                 <PageNumbers paginateArticles={this.paginateArticles} />
             </div>

@@ -146,25 +146,153 @@ ul {
 
 
 
+/* Voting.js */
+
+.Voting-VoteValue {
+  margin: 10px;
+  display: inline-flex;
+}
+
+.Voting-UpvoteButton, .Voting-DownvoteButton {
+  margin-bottom: 15px;
+}
 
 
 
+/* CommentGrid.js */
+
+.CommentGrid-ListItems {
+  border-top: 1px solid black;
+}
 
 
 
+/* CommentTile.js */
+
+.CommentTile-UserAvatar {
+  width: 65px;
+  padding: 30px;
+}
+
+.CommentTile-TextContainer {
+  width: 800px;
+  height: auto;
+  display: inline-block;
+  position: relative;
+}
+
+.CommentTile-DeleteCommentButton {
+  margin-top: 15px;
+}
 
 
 
+/* NewComment.js */
+
+.NewComment-CommentButton {
+  display: flex;
+  text-align: right;
+}
+
+.NewComment-InputBox {
+  width: 500px;
+  height: 50px;
+  margin-bottom: 5px;
+}
+
+.NewComment-Container {
+  border-top: 1px solid black;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
 
 
 
-.avatarImage {
+/* LogInOverlay.js */
+
+.LogInOverlay-Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.LogInOverlay-Modal {
+  width: 300px;
+  height: 230px;
+  position: fixed;
+  top: 50%; 
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -150px;
+  background-color: white;
+  text-align: center;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.LogInOverlay-LogInButton, .LogInOverlay-CloseWindowButton {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 40px;
+}
+
+.LogInOverlay-HeaderText {
+    margin-top: 40px;
+    margin-bottom: 45px;
+}
+
+
+
+/* SignUpOverlay.js */
+
+.SignUpOverlay-Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.SignUpOverlay-Modal {
+  width: 300px;
+  height: 230px;
+  position: fixed;
+  top: 50%; 
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -150px;
+  background-color: white;
+  text-align: center;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.SignUpOverlay-SignUpButton, .SignUpOverlay-CloseWindowButton {
+margin-left: 5px;
+margin-right: 5px;
+margin-top: 40px;
+}
+
+.SignUpButton-HeaderText {
+margin-top: 40px;
+margin-bottom: 45px;
+}
+
+
+
+/* Profile.js */
+
+.ProfileTile-AvatarImage {
   width: 200px;
   height: auto;
   position: relative;
 }
 
-.profileTile {
+.ProfileTile-Container {
   padding: 40px;
   margin: 20px;
   text-align: left;
@@ -172,137 +300,79 @@ ul {
   align-items: center;
 }
 
-.profileTileText {
+.ProfileTile-Text {
   padding: 40px;
   font-size: 20px;
 }
 
-#profileDesc {
+.ProfileTile-UserDescription {
   font-style: italic;
 }
 
-#myArticles {
+.ProfileTile-UserArticles {
   text-align: left;
   padding-left: 75px;
 }
 
-#commentList {
-  border-top: 1px solid black;
-}
 
 
-#articleTileListItem {
-  display: inline-block;
-  padding-right: 5px;
-}
+/* NewArticle.js */
 
-
-.overlay, .signup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.modal, .signup-modal {
-    width: 300px;
-    height: 230px;
-    position: fixed;
-    top: 50%; 
-    left: 50%;
-    margin-top: -200px;
-    margin-left: -150px;
-    background-color: white;
-    text-align: center;
-    z-index: 10;
-    border-radius: 10px;
-}
-
-#logInButton, #signUpButton, #closeButton {
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 40px;
-}
-
-.pleaseLogInText, .pleaseSignUpText {
-  margin-top: 40px;
-  margin-bottom: 45px;
-}
-
-
-.commentButton {
-  display: flex;
-  text-align: right;
-}
-
-.commentBox {
-  width: 500px;
-  height: 50px;
-  margin-bottom: 5px;
-}
-
-#voteValue {
+.NewArticle-TitleInput, .NewArticle-BodyInput {
+  width: 700px;
   margin: 10px;
-  display: inline-flex;
 }
 
-.votingButtons {
-  margin-bottom: 15px;
+.NewArticle-BodyInput {
+  height: 300px;
 }
 
-.commentSection {
-  border-top: 1px solid black;
-  padding-top: 20px;
-  margin-bottom: 20px;
+.NewArticle-PostArticleButton {
+  margin: 10px;
+  margin-bottom: 150px;
 }
 
-#deleteCommentButton {
-  margin-top: 15px;
+
+
+/* SortArticles.js */
+
+.SortArticles-SearchBar {
+  margin: 10px;
 }
 
-.pageButtons {
+
+
+/* AllArticles.js */
+
+.AllArticles-NewArticleButton {
+  margin: 10px;
+}
+
+
+
+
+/* PageNumbers.js */
+
+.PageNumbers-Buttons {
   width: 40px;
   height: 40px;
   margin: 5px;
 }
 
-#error-potato {
+
+
+/* Error.js */
+
+.ErrorPage-ErrorPotato {
   width: 500px;
   object-fit: unset
 }
 
-.comment-avatar {
-  width: 65px;
-  padding: 30px;
-}
 
-#commentTileText {
-  width: 800px;
-  height: auto;
+
+/* ArticleGrid.js */
+
+.ArticleGrid-ListItems {
   display: inline-block;
-  position: relative;
-}
-
-#article-title, #article-body {
-  width: 700px;
-  margin: 10px;
-}
-
-#article-body {
-  height: 300px;
-}
-
-#postArticle-button {
-  margin: 10px;
-  margin-bottom: 150px;
-}
-
-.searchBar {
-  margin: 10px;
-}
-
-.newArticle-button {
-  margin: 10px;
+  padding-right: 5px;
 }

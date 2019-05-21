@@ -13,11 +13,11 @@ class NewArticle extends React.Component {
         const { titleInput, bodyInput } = this.state;
         return (
             <div>
-                <h1 id="newArticle-header">bring it to the table →</h1>
-                <form className="newArticleForm">
-                    <input name="article-title" value={titleInput} onClick={this.handleClick} onChange={this.handleTyping} id="article-title"  />
+                <h1 className="NewArticle-Header">bring it to the table →</h1>
+                <form className="NewArticle-Form">
+                    <input name="article-title" className="NewArticle-TitleInput" value={titleInput} onClick={this.handleClick} onChange={this.handleTyping}/>
                     <br/>
-                    <textarea name="article-body" id="article-body" value={bodyInput} onClick={this.handleClick} onChange={this.handleTyping} />
+                    <textarea name="article-body" className="NewArticle-BodyInput" value={bodyInput} onClick={this.handleClick} onChange={this.handleTyping} />
                     <br/>
                     <select onChange={this.handleTopicSelect}>
                         <option value="please-select">Please select a topic...</option>
@@ -28,7 +28,7 @@ class NewArticle extends React.Component {
                         <option value="healthy">Healthy Living</option>
                         <option value="treats">Treat Yo' Self</option>
                     </select>
-                    <button type="submit" onClick={this.postArticle} id="postArticle-button">Post Article</button>
+                    <button type="submit" onClick={this.postArticle} className="NewArticle-PostArticleButton">Post Article</button>
                 </form>
             </div>
         )

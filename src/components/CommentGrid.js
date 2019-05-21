@@ -7,7 +7,7 @@ function CommentGrid ({ comments, loggedInUser, commentInput, addComment, handle
         <ul>
             {loggedInUser && <NewComment addComment={addComment} commentInput={commentInput} handleCommentTyping={handleCommentTyping} handleClick={handleClick} />}
             {comments.map((comment, i) => (
-                <li key={i} id="commentList">
+                <li key={i} className="CommentGrid-ListItems">
                     <CommentTile comment={comment} loggedInUser={loggedInUser} commentInput={commentInput} handleCommentTyping={handleCommentTyping} deleteOwnComment={deleteOwnComment}/>
                 </li>
             ))}
