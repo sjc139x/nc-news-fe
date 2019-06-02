@@ -13,16 +13,16 @@ ul {
 /* ArticleTile.js */
 
 .ArticleTile-Image {
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
-  opacity: 0.9;
+  opacity: 0.7;
 }
 
 .ArticleTile-Container {
   position: relative;
-  height: 250px;
-  width: 250px;
+  height: 300px;
+  width: 300px;
 }
 
 .ArticleTile-Text {
@@ -39,27 +39,25 @@ ul {
   font-size: 20px;
 }
 
-.ArticleTile-Title,
-.ArticleTile-Author {
+.ArticleTile-Title {
   color: white;
   text-decoration: underline;
   margin: 2px;
   margin-left: 4px;
 }
 
-.ArticleTile-Author,
-.ArticleTile-Date {
-  display: inline-block;
-  font-size: 14px;
-}
-
-.ArticleTile-Date {
-  padding-right: 8px;
-  margin-left: 4px;
-}
-
 .ArticleTile-Author {
-  padding-left: 8px;
+  color: white;
+  text-decoration: underline;
+}
+
+.ArticleTile-Author,
+.ArticleTile-Date,
+.ArticleTile-Votes {
+  display: inline-block;
+  font-size: 13px;
+  padding-right: 4px;
+  padding-left: 4px;
 }
 
 /* Header.js */

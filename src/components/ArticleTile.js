@@ -30,6 +30,7 @@ function ArticleTile({ article, loggedInUser, deleteOwnArticle }) {
         <Link to={`/profile/${article.author}`}>
           <h5 className="ArticleTile-Author">{article.author}</h5>
         </Link>
+        •<h5 className="ArticleTile-Votes">{article.votes} likes</h5>
       </div>
     </div>
   );
