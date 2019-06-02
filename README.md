@@ -5,7 +5,7 @@ Table is a Reddit-style news aggregation web app, specifically for sharing recip
 [Click here to see the hosted site with Netlify]( ?????? )
 
 
-## Features Implemented
+## Features:
 
 - Sign up, log in and log out
 - View all articles or by topic
@@ -18,7 +18,7 @@ Table is a Reddit-style news aggregation web app, specifically for sharing recip
 - (If logged in), delete your own articles and comments
 
 
-## Tech Stack
+## Tech:
 
 - [Node JS ](https://nodejs.org)
 - [React js](https://reactjs.org/)
