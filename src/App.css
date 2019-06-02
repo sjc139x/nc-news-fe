@@ -275,24 +275,17 @@ ul {
 }
 
 .ProfileTile-Container {
-  padding: 20px;
   margin: 20px;
-  text-align: left;
-  align-items: center;
-  position: inline-flex;
 }
 
 .ProfileTile-Text {
+  margin: 20px;
   font-size: 20px;
+  padding-bottom: 15px;
 }
 
 .ProfileTile-UserDescription {
   font-style: italic;
-}
-
-.ProfileTile-UserArticles {
-  text-align: left;
-  padding-left: 40px;
 }
 
 /* NewArticle.js */
