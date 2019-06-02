@@ -28,19 +28,19 @@ Table is a Reddit-style news aggregation web app, specifically for sharing recip
 
 ## To run the app locally:
 
-Clone repo
+Clone repo:
 
 ```bash
 git clone https://github.com/sjc139x/nc-news-fe.git
 ```
 
-Open directory
+Open directory:
 
 ```bash
 cd nc-news-fe
 ```
 
-Install dependencies
+Install dependencies:
 
 ```bash
 npm install
