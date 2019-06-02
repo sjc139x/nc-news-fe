@@ -31,13 +31,13 @@ Table is a Reddit-style news aggregation web app, specifically for sharing recip
 Clone repo
 
 ```bash
-git clone https://github.com/macca294/ncnews-fend.git
+git clone https://github.com/sjc139x/nc-news-fe.git
 ```
 
 Open directory
 
 ```bash
-cd ncnews-fend
+cd nc-news-fe
 ```
 
 Install dependencies
