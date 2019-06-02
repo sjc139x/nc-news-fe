@@ -10,8 +10,6 @@ ul {
   padding-left: 0;
 }
 
-
-
 /* ArticleTile.js */
 
 .ArticleTile-Image {
@@ -41,14 +39,16 @@ ul {
   font-size: 20px;
 }
 
-.ArticleTile-Title, .ArticleTile-Author {
+.ArticleTile-Title,
+.ArticleTile-Author {
   color: white;
   text-decoration: underline;
   margin: 2px;
   margin-left: 4px;
 }
 
-.ArticleTile-Author, .ArticleTile-Date {
+.ArticleTile-Author,
+.ArticleTile-Date {
   display: inline-block;
   font-size: 14px;
 }
@@ -62,8 +62,6 @@ ul {
   padding-left: 8px;
 }
 
-
-
 /* Header.js */
 
 .Header-Logo {
@@ -75,10 +73,12 @@ ul {
 }
 
 .Header-NavBar {
+  border-top: 2px solid black;
   border-bottom: 2px solid black;
-  padding: 6px;
+  padding: 10px;
   margin-top: 2px;
   position: relative;
+  display: inline-block;
 }
 
 .Header-NavBarListItems {
@@ -93,8 +93,6 @@ ul {
   right: 15px;
   z-index: 10;
 }
-
-
 
 /* LoggedInTile.js */
 
@@ -117,8 +115,6 @@ ul {
   margin: 0px;
   margin-bottom: 3px;
 }
-
-
 
 /* SingleArticle.js */
 
@@ -144,8 +140,6 @@ ul {
   padding-bottom: 30px;
 }
 
-
-
 /* Voting.js */
 
 .Voting-VoteValue {
@@ -153,19 +147,16 @@ ul {
   display: inline-flex;
 }
 
-.Voting-UpvoteButton, .Voting-DownvoteButton {
+.Voting-UpvoteButton,
+.Voting-DownvoteButton {
   margin-bottom: 15px;
 }
-
-
 
 /* CommentGrid.js */
 
 .CommentGrid-ListItems {
   border-top: 1px solid black;
 }
-
-
 
 /* CommentTile.js */
 
@@ -175,7 +166,6 @@ ul {
 }
 
 .CommentTile-TextContainer {
-  width: 800px;
   height: auto;
   display: inline-block;
   position: relative;
@@ -184,8 +174,6 @@ ul {
 .CommentTile-DeleteCommentButton {
   margin-top: 15px;
 }
-
-
 
 /* NewComment.js */
 
@@ -206,8 +194,6 @@ ul {
   margin-bottom: 20px;
 }
 
-
-
 /* LogInOverlay.js */
 
 .LogInOverlay-Overlay {
@@ -216,14 +202,14 @@ ul {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .LogInOverlay-Modal {
   width: 300px;
   height: 230px;
   position: fixed;
-  top: 50%; 
+  top: 50%;
   left: 50%;
   margin-top: -200px;
   margin-left: -150px;
@@ -233,18 +219,17 @@ ul {
   border-radius: 10px;
 }
 
-.LogInOverlay-LogInButton, .LogInOverlay-CloseWindowButton {
+.LogInOverlay-LogInButton,
+.LogInOverlay-CloseWindowButton {
   margin-left: 5px;
   margin-right: 5px;
   margin-top: 40px;
 }
 
 .LogInOverlay-HeaderText {
-    margin-top: 40px;
-    margin-bottom: 45px;
+  margin-top: 40px;
+  margin-bottom: 45px;
 }
-
-
 
 /* SignUpOverlay.js */
 
@@ -254,14 +239,14 @@ ul {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .SignUpOverlay-Modal {
   width: 300px;
   height: 230px;
   position: fixed;
-  top: 50%; 
+  top: 50%;
   left: 50%;
   margin-top: -200px;
   margin-left: -150px;
@@ -271,37 +256,35 @@ ul {
   border-radius: 10px;
 }
 
-.SignUpOverlay-SignUpButton, .SignUpOverlay-CloseWindowButton {
-margin-left: 5px;
-margin-right: 5px;
-margin-top: 40px;
+.SignUpOverlay-SignUpButton,
+.SignUpOverlay-CloseWindowButton {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 40px;
 }
 
-.SignUpButton-HeaderText {
-margin-top: 40px;
-margin-bottom: 45px;
+.SignUpOverlay-HeaderText {
+  margin-top: 40px;
+  margin-bottom: 45px;
 }
-
-
 
 /* Profile.js */
 
 .ProfileTile-AvatarImage {
-  width: 200px;
+  width: 150px;
   height: auto;
   position: relative;
 }
 
 .ProfileTile-Container {
-  padding: 40px;
+  padding: 20px;
   margin: 20px;
   text-align: left;
-  display: flex;
   align-items: center;
+  position: inline-flex;
 }
 
 .ProfileTile-Text {
-  padding: 40px;
   font-size: 20px;
 }
 
@@ -311,14 +294,13 @@ margin-bottom: 45px;
 
 .ProfileTile-UserArticles {
   text-align: left;
-  padding-left: 75px;
+  padding-left: 40px;
 }
-
-
 
 /* NewArticle.js */
 
-.NewArticle-TitleInput, .NewArticle-BodyInput {
+.NewArticle-TitleInput,
+.NewArticle-BodyInput {
   width: 700px;
   margin: 10px;
 }
@@ -332,24 +314,17 @@ margin-bottom: 45px;
   margin-bottom: 150px;
 }
 
-
-
 /* SortArticles.js */
 
 .SortArticles-SearchBar {
-  margin: 10px;
+  display: inline-block;
 }
-
-
 
 /* AllArticles.js */
 
 .AllArticles-NewArticleButton {
   margin: 10px;
 }
-
-
-
 
 /* PageNumbers.js */
 
@@ -359,16 +334,12 @@ margin-bottom: 45px;
   margin: 5px;
 }
 
-
-
 /* Error.js */
 
 .ErrorPage-ErrorPotato {
   width: 500px;
-  object-fit: unset
+  object-fit: unset;
 }
-
-
 
 /* ArticleGrid.js */
 

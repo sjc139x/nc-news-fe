@@ -33,7 +33,7 @@ class CommentTile extends React.Component {
         getUserInfo(comment.author)
         .then(({ avatar_url }) => {
             this.setState({ avatar_url });
-        })
+        });
     };
 
 };
