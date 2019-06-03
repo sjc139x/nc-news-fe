@@ -30,7 +30,20 @@ function ArticleTile({ article, loggedInUser, deleteOwnArticle }) {
         <Link to={`/profile/${article.author}`}>
           <h5 className="ArticleTile-Author">{article.author}</h5>
         </Link>
-        •<h5 className="ArticleTile-Votes">{article.votes} likes</h5>
+        •
+        {article.votes === 0 && <h5 className="ArticleTile-Votes">no likes</h5>}
+        {article.votes === 1 && (
+          <h5 className="ArticleTile-Votes">{article.votes} like</h5>
+        )}
+        {article.votes > 1 && (
+          <h5 className="ArticleTile-Votes">{article.votes} likes</h5>
+        )}
+        {article.votes === -1 && (
+          <h5 className="ArticleTile-Votes">{article.votes} dislike</h5>
+        )}
+        {article.votes < -1 && (
+          <h5 className="ArticleTile-Votes">{article.votes} dislikes</h5>
+        )}
       </div>
     </div>
   );
