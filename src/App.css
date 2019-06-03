@@ -181,9 +181,11 @@ ul {
 }
 
 .NewComment-InputBox {
-  width: 500px;
+  width: relative;
   height: 50px;
   margin-bottom: 5px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .NewComment-Container {
@@ -309,12 +311,13 @@ ul {
 
 .SortArticles-SearchBar {
   display: inline-block;
+  margin-right: 10px;
 }
 
 /* AllArticles.js */
 
 .AllArticles-NewArticleButton {
-  margin: 10px;
+  margin-left: 10px;
 }
 
 /* PageNumbers.js */

@@ -13,11 +13,12 @@ class SingleArticle extends React.Component {
   state = {
     article: null,
     comments: null,
-    commentInput: "have your say →"
+    commentInput: "",
+    isButtonDisabled: true
   };
 
   render() {
-    const { article, comments, commentInput } = this.state;
+    const { article, comments, commentInput, isButtonDisabled } = this.state;
     const { loggedInUser } = this.props;
     return (
       <>
@@ -50,7 +51,7 @@ class SingleArticle extends React.Component {
               addComment={this.addComment}
               handleCommentTyping={this.handleCommentTyping}
               deleteOwnComment={this.deleteOwnComment}
-              handleClick={this.handleClick}
+              isButtonDisabled={isButtonDisabled}
             />
           )}
         </div>
@@ -76,12 +77,9 @@ class SingleArticle extends React.Component {
     getComments(article_id).then(comments => this.setState({ comments }));
   }
 
-  handleClick = () => {
-    this.setState({ commentInput: "" });
-  };
-
   handleCommentTyping = event => {
     this.setState({ commentInput: event.target.value });
+    this.setState({ isButtonDisabled: false });
   };
 
   addComment = event => {
@@ -94,6 +92,8 @@ class SingleArticle extends React.Component {
         this.setState(prevState => ({
           comments: [comment, ...prevState.comments]
         }));
+        this.setState({ commentInput: "" });
+        this.setState({ isButtonDisabled: true });
       }
     );
   };
