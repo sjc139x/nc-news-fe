@@ -48,8 +48,6 @@ class Profile extends React.Component {
     );
   }
 
-  // {articles && <ArticleGrid articles={articles} loggedInUser={loggedInUser} deleteArticle={this.deleteArticle} />}
-
   componentDidMount() {
     const { username } = this.props;
 
