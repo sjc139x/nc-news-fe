@@ -2,7 +2,7 @@
 
 Table is a Reddit-style news aggregation web app, specifically for sharing recipes, reviews, and discussing anything food-related. I built this front end using React, as part of my coursework for Northcoders (a coding bootcamp I completed as of June 2019). This front end connects to and calls data from [an API that I also built](https://github.com/sjc139x/nc-news) as part of the course.
 
-[Click here to see the hosted site with Netlify]( ?????? )
+[Click here to see the hosted site with Netlify]( https://bringittothetable.netlify.com )
 
 
 ## Features:
