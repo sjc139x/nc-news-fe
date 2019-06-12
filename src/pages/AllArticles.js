@@ -4,18 +4,20 @@ import PageNumbers from "../components/PageNumbers";
 import SortArticles from "../components/SortArticles";
 import { Link } from "@reach/router";
 import {
-  getArticles,
+  getArticlesByPage,
   getArticlesBySort,
-  removeArticle
+  removeArticle,
+  getArticlesLength
 } from "../api-interactions";
 
 class AllArticles extends React.Component {
   state = {
-    articles: null
+    articles: null,
+    allArticlesLength: 0
   };
 
   render() {
-    const { articles } = this.state;
+    const { articles, allArticlesLength } = this.state;
     const { loggedInUser } = this.props;
     return (
       <div>
@@ -36,7 +38,7 @@ class AllArticles extends React.Component {
         )}
         {articles && (
           <PageNumbers
-            numOfArticles={articles.length}
+            numOfArticles={allArticlesLength}
             paginateArticles={this.paginateArticles}
           />
         )}
@@ -45,13 +47,16 @@ class AllArticles extends React.Component {
   }
 
   componentDidMount() {
-    getArticles(1).then(articles => {
+    getArticlesByPage(1).then(articles => {
       this.setState({ articles });
+    });
+    getArticlesLength().then(allArticlesLength => {
+      this.setState({ allArticlesLength });
     });
   }
 
   paginateArticles = pageNumber => {
-    getArticles(pageNumber).then(articles => {
+    getArticlesByPage(pageNumber).then(articles => {
       this.setState({ articles });
     });
   };
@@ -62,7 +67,6 @@ class AllArticles extends React.Component {
     });
   };
 
-  //this works but perhaps should be more optimistic? also how to not mess up pagination?
   deleteOwnArticle = article_id => {
     removeArticle(article_id).then(res => {
       this.setState(prevState => ({

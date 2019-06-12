@@ -1,14 +1,24 @@
-import React from 'react';
+import React from "react";
 
-function PageNumbers ({ paginateArticles }) {
-    return (
-        <div>
-            <button onClick={e => paginateArticles(1)} className="PageNumbers-Buttons">1</button>
-            <button onClick={e => paginateArticles(2)} className="PageNumbers-Buttons">2</button>
-            <button onClick={e => paginateArticles(3)} className="PageNumbers-Buttons">3</button>
-            <button onClick={e => paginateArticles(4)} className="PageNumbers-Buttons">4</button>
-        </div>
-    )
-};
+function PageNumbers({ paginateArticles, numOfArticles }) {
+  const numOfPages = Math.ceil(numOfArticles / 10);
+  const pagesArray = Array.from(Array(numOfPages), (x, i) => (x = i + 1));
+
+  return (
+    <div>
+      {pagesArray.map((page, i) => {
+        return (
+          <button
+            onClick={e => paginateArticles(page)}
+            className="PageNumbers-Buttons"
+            key={i}
+          >
+            {page}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
 
 export default PageNumbers;
