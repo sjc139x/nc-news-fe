@@ -20,20 +20,21 @@ import { getUserInfo, postUserInfo } from "./api-interactions";
 class App extends React.Component {
   state = {
     logInButtonClicked: false,
-    usernameInput: "username →",
+    logIn_usernameInput: "e.g. hire-me-lol",
     loggedInUser: null,
     errorOnRequest: false,
     signUpButtonClicked: false,
-    signUp_usernameInput: "username →"
+    signUp_usernameInput: "username"
   };
 
   render() {
     const {
       logInButtonClicked,
       signUpButtonClicked,
-      usernameInput,
+      logIn_usernameInput,
       loggedInUser,
-      errorOnRequest
+      errorOnRequest,
+      signUp_usernameInput
     } = this.state;
     return (
       <div className="App">
@@ -44,7 +45,6 @@ class App extends React.Component {
           logOutUser={this.logOutUser}
         />
         <Router>
-          {/* have had to repeat functionality given routing below, could this be done better? */}
           <AllArticles path="/" loggedInUser={loggedInUser} />
           <SingleArticle
             path="/article/:article_id"
@@ -64,9 +64,9 @@ class App extends React.Component {
           <LogInOverlay
             toggleLogInBox={this.toggleLogInBox}
             logInUser={this.logInUser}
-            handleTyping={this.handleTyping}
-            handleClick={this.handleClick}
-            usernameInput={usernameInput}
+            handleTyping={this.handleLogInTyping}
+            handleClick={this.handleLogInClick}
+            usernameInput={logIn_usernameInput}
             errorOnRequest={errorOnRequest}
           />
         )}
@@ -74,9 +74,9 @@ class App extends React.Component {
           <SignUpOverlay
             toggleSignUpBox={this.toggleSignUpBox}
             signUpUser={this.signUpUser}
-            handleTyping={this.handleTyping}
-            handleClick={this.handleClick}
-            usernameInput={usernameInput}
+            handleTyping={this.handleSignUpTyping}
+            handleClick={this.handleSignUpClick}
+            usernameInput={signUp_usernameInput}
             errorOnRequest={errorOnRequest}
           />
         )}
@@ -95,7 +95,6 @@ class App extends React.Component {
     this.setState(prevState => ({
       logInButtonClicked: !prevState.logInButtonClicked
     }));
-    this.setState({ usernameInput: "username →" });
   };
 
   toggleSignUpBox = () => {
@@ -104,19 +103,24 @@ class App extends React.Component {
     }));
   };
 
-  handleTyping = event => {
-    this.setState({ usernameInput: event.target.value });
+  handleLogInTyping = event => {
+    this.setState({ logIn_usernameInput: event.target.value });
+    this.setState({ errorOnRequest: false });
+  };
+
+  handleSignUpTyping = event => {
+    this.setState({ signUp_usernameInput: event.target.value });
     this.setState({ errorOnRequest: false });
   };
 
   logInUser = event => {
-    const { usernameInput } = this.state;
+    const { logIn_usernameInput } = this.state;
     event.preventDefault();
-    getUserInfo(usernameInput)
+    getUserInfo(logIn_usernameInput)
       .then(user => {
         this.setState({ loggedInUser: user });
         localStorage.setItem("loggedInUser", JSON.stringify(user));
-        this.setState({ usernameInput: "" });
+        this.setState({ logIn_usernameInput: "" });
         this.toggleLogInBox();
       })
       .catch(error => {
@@ -130,13 +134,13 @@ class App extends React.Component {
   };
 
   signUpUser = event => {
-    const { usernameInput } = this.state;
+    const { signUp_usernameInput } = this.state;
     event.preventDefault();
-    postUserInfo(usernameInput)
+    postUserInfo(signUp_usernameInput)
       .then(user => {
         this.setState({ loggedInUser: user });
         localStorage.setItem("loggedInUser", JSON.stringify(user));
-        this.setState({ usernameInput: "" });
+        this.setState({ signUp_usernameInput: "" });
         this.toggleSignUpBox();
       })
       .catch(error => {
@@ -144,8 +148,12 @@ class App extends React.Component {
       });
   };
 
-  handleClick = () => {
-    this.setState({ usernameInput: "" });
+  handleLogInClick = e => {
+    this.setState({ logIn_usernameInput: "" });
+  };
+
+  handleSignUpClick = e => {
+    this.setState({ signUp_usernameInput: "" });
   };
 }
 
