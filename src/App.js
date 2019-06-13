@@ -95,7 +95,7 @@ class App extends React.Component {
     this.setState(prevState => ({
       logInButtonClicked: !prevState.logInButtonClicked
     }));
-    this.setState({ logIn_usernameInput: "e.g. hire me lol" });
+    this.setState({ logIn_usernameInput: "e.g. hire-me-lol" });
   };
 
   toggleSignUpBox = () => {
