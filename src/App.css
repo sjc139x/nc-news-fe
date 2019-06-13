@@ -63,9 +63,10 @@ ul {
 /* Header.js */
 
 .Header-Logo {
-  width: 240px;
+  width: 220px;
   height: auto;
   margin-right: 1000px;
+  margin-bottom: 10px;
   float: left;
   flex: 1;
 }
@@ -87,7 +88,7 @@ ul {
 
 .Header-UserAccountButtons {
   position: absolute;
-  top: 40px;
+  top: 38px;
   right: 15px;
   z-index: 10;
 }
