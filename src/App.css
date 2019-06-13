@@ -292,14 +292,21 @@ ul {
 
 /* NewArticle.js */
 
+.NewArticle-Header {
+  font-size: 20px;
+}
+
 .NewArticle-TitleInput,
 .NewArticle-BodyInput {
-  width: 700px;
-  margin: 10px;
+  height: 50px;
+  width: 100%;
+  border: 1px solid black;
+  margin-bottom: 5px;
+  box-sizing: border-box;
 }
 
 .NewArticle-BodyInput {
-  height: 300px;
+  height: 400px;
 }
 
 .NewArticle-PostArticleButton {
@@ -311,7 +318,7 @@ ul {
 
 .SortArticles-SearchBar {
   display: inline-block;
-  margin-right: 10px;
+  margin: 10px;
 }
 
 /* AllArticles.js */
