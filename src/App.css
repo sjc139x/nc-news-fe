@@ -323,10 +323,10 @@ ul {
   margin: 10px;
 }
 
-/* AllArticles.js */
+/* NewArticleButton (AllArticles.js and all topic pages) */
 
-.AllArticles-NewArticleButton {
-  margin-left: 10px;
+.NewArticleButton {
+  margin: 10px;
 }
 
 /* PageNumbers.js */

@@ -1,6 +1,7 @@
 import React from "react";
 import ArticleGrid from "../components/ArticleGrid";
 import SortArticles from "../components/SortArticles";
+import { Link } from "@reach/router";
 import {
   getArticlesByTopic,
   removeArticle,
@@ -18,6 +19,11 @@ class ChefLife extends React.Component {
     return (
       <div>
         <SortArticles sortArticles={this.sortArticles} />
+        {loggedInUser && (
+          <Link to="/new-article">
+            <button className="NewArticleButton">Post New Article</button>
+          </Link>
+        )}
         {chefLifeContent && (
           <ArticleGrid
             articles={chefLifeContent}

@@ -24,9 +24,7 @@ class AllArticles extends React.Component {
         <SortArticles sortArticles={this.sortArticles} />
         {loggedInUser && (
           <Link to="new-article">
-            <button className="AllArticles-NewArticleButton">
-              Post New Article
-            </button>
+            <button className="NewArticleButton">Post New Article</button>
           </Link>
         )}
         {articles && (
