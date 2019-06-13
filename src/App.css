@@ -293,15 +293,17 @@ ul {
 /* NewArticle.js */
 
 .NewArticle-Header {
-  font-size: 20px;
+  font-size: 25px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .NewArticle-TitleInput,
 .NewArticle-BodyInput {
   height: 50px;
-  width: 100%;
+  width: 80%;
   border: 1px solid black;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   box-sizing: border-box;
 }
 

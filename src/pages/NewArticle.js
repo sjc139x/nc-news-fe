@@ -15,12 +15,16 @@ class NewArticle extends React.Component {
       <div>
         <h1 className="NewArticle-Header">bring it to the table →</h1>
         <form className="NewArticle-Form">
+          <label htmlFor="article-title">title:</label>
+          <br />
           <textarea
             name="article-title"
             className="NewArticle-TitleInput"
             value={titleInput}
             onChange={this.handleTyping}
           />
+          <br />
+          <label htmlFor="article-body">body:</label>
           <br />
           <textarea
             name="article-body"
