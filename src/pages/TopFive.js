@@ -1,39 +1,56 @@
-import React from 'react';
-import ArticleGrid from '../components/ArticleGrid';
-import { getArticlesByTopic, removeArticle } from '../api-interactions';
+import React from "react";
+import ArticleGrid from "../components/ArticleGrid";
+import SortArticles from "../components/SortArticles";
+import {
+  getArticlesByTopic,
+  removeArticle,
+  getSortedArticlesByTopic
+} from "../api-interactions";
 
 class TopFive extends React.Component {
-    state = {
-        topFives: null
-    }
+  state = {
+    topFives: null
+  };
 
-    render () {
-        const { topFives } = this.state;
-        const { loggedInUser } = this.props;
-        return (
-            <div>
-                {topFives && <ArticleGrid articles={topFives} loggedInUser={loggedInUser} deleteOwnArticle={this.deleteOwnArticle} />}
-            </div>
+  render() {
+    const { topFives } = this.state;
+    const { loggedInUser } = this.props;
+    return (
+      <div>
+        <SortArticles sortArticles={this.sortArticles} />
+        {topFives && (
+          <ArticleGrid
+            articles={topFives}
+            loggedInUser={loggedInUser}
+            deleteOwnArticle={this.deleteOwnArticle}
+          />
+        )}
+      </div>
+    );
+  }
+
+  componentDidMount() {
+    getArticlesByTopic("top 5").then(topFives => {
+      this.setState({ topFives });
+    });
+  }
+
+  sortArticles = (column, order) => {
+    const topic = this.state.topFives[0].topic;
+    getSortedArticlesByTopic(topic, column, order).then(topFives => {
+      this.setState({ topFives });
+    });
+  };
+
+  deleteOwnArticle = article_id => {
+    removeArticle(article_id).then(res => {
+      this.setState(prevState => ({
+        topFives: prevState.topFives.filter(
+          topFiveArticle => topFiveArticle.article_id !== article_id
         )
-    }
-
-    componentDidMount () {
-        getArticlesByTopic('top 5')
-        .then(topFives => {
-            this.setState({ topFives })
-        });
-    }
-
-    //this works but perhaps should be more optimistic? also how to not mess up pagination?
-    deleteOwnArticle = article_id => {
-        removeArticle(article_id)
-        .then(res => {
-            this.setState(prevState => ({
-                topFives: prevState.topFives.filter(topFiveArticle => topFiveArticle.article_id !== article_id)
-            }))
-        });
-    }
-
-};
+      }));
+    });
+  };
+}
 
 export default TopFive;

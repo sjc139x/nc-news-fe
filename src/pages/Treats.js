@@ -1,6 +1,11 @@
 import React from "react";
 import ArticleGrid from "../components/ArticleGrid";
-import { getArticlesByTopic, removeArticle } from "../api-interactions";
+import SortArticles from "../components/SortArticles";
+import {
+  getArticlesByTopic,
+  removeArticle,
+  getSortedArticlesByTopic
+} from "../api-interactions";
 
 class Treats extends React.Component {
   state = {
@@ -12,6 +17,7 @@ class Treats extends React.Component {
     const { loggedInUser } = this.props;
     return (
       <div>
+        <SortArticles sortArticles={this.sortArticles} />
         {treatContent && (
           <ArticleGrid
             articles={treatContent}
@@ -28,6 +34,13 @@ class Treats extends React.Component {
       this.setState({ treatContent });
     });
   }
+
+  sortArticles = (column, order) => {
+    const topic = this.state.treatContent[0].topic;
+    getSortedArticlesByTopic(topic, column, order).then(treatContent => {
+      this.setState({ treatContent });
+    });
+  };
 
   deleteOwnArticle = article_id => {
     removeArticle(article_id).then(res => {

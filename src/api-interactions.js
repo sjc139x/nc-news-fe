@@ -40,6 +40,21 @@ export const getArticlesByTopic = topic => {
     .catch(err => console.log(err));
 };
 
+export const getSortedArticlesByTopic = (topic, column, order) => {
+  return axios
+    .get("https://nc-news-sjc.herokuapp.com/api/articles", {
+      params: {
+        topic: topic,
+        sort_by: column,
+        order: order
+      }
+    })
+    .then(({ data: { articles } }) => {
+      return articles;
+    })
+    .catch(err => console.log(err));
+};
+
 export const getArticlesByAuthor = author => {
   return axios
     .get("https://nc-news-sjc.herokuapp.com/api/articles", {
