@@ -20,18 +20,19 @@ import { getUserInfo, postUserInfo } from "./api-interactions";
 class App extends React.Component {
   state = {
     logInButtonClicked: false,
-    usernameInput: "username →",
+    logIn_usernameInput: "e.g. hire-me-lol→",
     loggedInUser: null,
     errorOnRequest: false,
     signUpButtonClicked: false,
-    signUp_usernameInput: "username →"
+    signUp_usernameInput: "username"
   };
 
   render() {
     const {
       logInButtonClicked,
       signUpButtonClicked,
-      usernameInput,
+      logIn_usernameInput,
+      signUp_usernameInput,
       loggedInUser,
       errorOnRequest
     } = this.state;
@@ -63,9 +64,9 @@ class App extends React.Component {
           <LogInOverlay
             toggleLogInBox={this.toggleLogInBox}
             logInUser={this.logInUser}
-            handleTyping={this.handleTyping}
-            handleClick={this.handleClick}
-            usernameInput={usernameInput}
+            handleTyping={this.handleLogInTyping}
+            handleClick={this.handleLogInClick}
+            usernameInput={logIn_usernameInput}
             errorOnRequest={errorOnRequest}
           />
         )}
@@ -73,9 +74,9 @@ class App extends React.Component {
           <SignUpOverlay
             toggleSignUpBox={this.toggleSignUpBox}
             signUpUser={this.signUpUser}
-            handleTyping={this.handleTyping}
-            handleClick={this.handleClick}
-            usernameInput={usernameInput}
+            handleTyping={this.handleSignUpTyping}
+            handleClick={this.handleSignUpClick}
+            usernameInput={signUp_usernameInput}
             errorOnRequest={errorOnRequest}
           />
         )}
@@ -94,28 +95,34 @@ class App extends React.Component {
     this.setState(prevState => ({
       logInButtonClicked: !prevState.logInButtonClicked
     }));
-    this.setState({ usernameInput: "username →" });
+    this.setState({ logIn_usernameInput: "e.g. hire me lol" });
   };
 
   toggleSignUpBox = () => {
     this.setState(prevState => ({
       signUpButtonClicked: !prevState.signUpButtonClicked
     }));
+    this.setState({ signUp_usernameInput: "username" });
   };
 
-  handleTyping = event => {
-    this.setState({ usernameInput: event.target.value });
+  handleLogInTyping = event => {
+    this.setState({ logIn_usernameInput: event.target.value });
+    this.setState({ errorOnRequest: false });
+  };
+
+  handleSignUpTyping = event => {
+    this.setState({ signUp_usernameInput: event.target.value });
     this.setState({ errorOnRequest: false });
   };
 
   logInUser = event => {
-    const { usernameInput } = this.state;
+    const { logIn_usernameInput } = this.state;
     event.preventDefault();
-    getUserInfo(usernameInput)
+    getUserInfo(logIn_usernameInput)
       .then(user => {
         this.setState({ loggedInUser: user });
         localStorage.setItem("loggedInUser", JSON.stringify(user));
-        this.setState({ usernameInput: "" });
+        this.setState({ logIn_usernameInput: "e.g. hire-me-lol" });
         this.toggleLogInBox();
       })
       .catch(error => {
@@ -129,13 +136,13 @@ class App extends React.Component {
   };
 
   signUpUser = event => {
-    const { usernameInput } = this.state;
+    const { signUp_usernameInput } = this.state;
     event.preventDefault();
-    postUserInfo(usernameInput)
+    postUserInfo(signUp_usernameInput)
       .then(user => {
         this.setState({ loggedInUser: user });
         localStorage.setItem("loggedInUser", JSON.stringify(user));
-        this.setState({ usernameInput: "" });
+        this.setState({ signUp_usernameInput: "username" });
         this.toggleSignUpBox();
       })
       .catch(error => {
@@ -143,8 +150,12 @@ class App extends React.Component {
       });
   };
 
-  handleClick = () => {
-    this.setState({ usernameInput: "" });
+  handleLogInClick = () => {
+    this.setState({ logIn_usernameInput: "" });
+  };
+
+  handleSignUpClick = () => {
+    this.setState({ signUp_usernameInput: "" });
   };
 }
 
