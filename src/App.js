@@ -20,7 +20,11 @@ import { getUserInfo, postUserInfo } from "./api-interactions";
 class App extends React.Component {
   state = {
     logInButtonClicked: false,
+<<<<<<< HEAD
     logIn_usernameInput: "e.g. hire-me-lol→",
+=======
+    logIn_usernameInput: "e.g. hire-me-lol",
+>>>>>>> 6776693ca80b23fb56ee20dbbd55a84c8e21633f
     loggedInUser: null,
     errorOnRequest: false,
     signUpButtonClicked: false,
@@ -32,9 +36,13 @@ class App extends React.Component {
       logInButtonClicked,
       signUpButtonClicked,
       logIn_usernameInput,
+<<<<<<< HEAD
       signUp_usernameInput,
+=======
+>>>>>>> 6776693ca80b23fb56ee20dbbd55a84c8e21633f
       loggedInUser,
-      errorOnRequest
+      errorOnRequest,
+      signUp_usernameInput
     } = this.state;
     return (
       <div className="App">
@@ -122,7 +130,11 @@ class App extends React.Component {
       .then(user => {
         this.setState({ loggedInUser: user });
         localStorage.setItem("loggedInUser", JSON.stringify(user));
+<<<<<<< HEAD
         this.setState({ logIn_usernameInput: "e.g. hire-me-lol" });
+=======
+        this.setState({ logIn_usernameInput: "" });
+>>>>>>> 6776693ca80b23fb56ee20dbbd55a84c8e21633f
         this.toggleLogInBox();
       })
       .catch(error => {
@@ -142,7 +154,11 @@ class App extends React.Component {
       .then(user => {
         this.setState({ loggedInUser: user });
         localStorage.setItem("loggedInUser", JSON.stringify(user));
+<<<<<<< HEAD
         this.setState({ signUp_usernameInput: "username" });
+=======
+        this.setState({ signUp_usernameInput: "" });
+>>>>>>> 6776693ca80b23fb56ee20dbbd55a84c8e21633f
         this.toggleSignUpBox();
       })
       .catch(error => {
@@ -150,11 +166,19 @@ class App extends React.Component {
       });
   };
 
+<<<<<<< HEAD
   handleLogInClick = () => {
     this.setState({ logIn_usernameInput: "" });
   };
 
   handleSignUpClick = () => {
+=======
+  handleLogInClick = e => {
+    this.setState({ logIn_usernameInput: "" });
+  };
+
+  handleSignUpClick = e => {
+>>>>>>> 6776693ca80b23fb56ee20dbbd55a84c8e21633f
     this.setState({ signUp_usernameInput: "" });
   };
 }
