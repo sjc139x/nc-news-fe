@@ -44,7 +44,6 @@ class App extends React.Component {
           logOutUser={this.logOutUser}
         />
         <Router>
-          {/* have had to repeat functionality given routing below, could this be done better? */}
           <AllArticles path="/" loggedInUser={loggedInUser} />
           <SingleArticle
             path="/article/:article_id"

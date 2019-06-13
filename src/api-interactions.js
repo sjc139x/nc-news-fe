@@ -5,7 +5,8 @@ export const getArticlesByPage = pageNumber => {
     .get(`https://nc-news-sjc.herokuapp.com/api/articles?p=${pageNumber}`)
     .then(({ data: { articles } }) => {
       return articles;
-    });
+    })
+    .catch(err => console.log(err));
 };
 
 export const getArticlesLength = () => {
@@ -13,7 +14,8 @@ export const getArticlesLength = () => {
     .get("https://nc-news-sjc.herokuapp.com/api/articles")
     .then(({ data: { total_count } }) => {
       return total_count;
-    });
+    })
+    .catch(err => console.log(err));
 };
 
 export const getSingleArticle = article_id => {
@@ -21,7 +23,8 @@ export const getSingleArticle = article_id => {
     .get(`https://nc-news-sjc.herokuapp.com/api/articles/${article_id}`)
     .then(({ data: { article } }) => {
       return article;
-    });
+    })
+    .catch(err => console.log(err));
 };
 
 export const getArticlesByTopic = topic => {
@@ -33,7 +36,8 @@ export const getArticlesByTopic = topic => {
     })
     .then(({ data: { articles } }) => {
       return articles;
-    });
+    })
+    .catch(err => console.log(err));
 };
 
 export const getArticlesByAuthor = author => {
@@ -45,7 +49,8 @@ export const getArticlesByAuthor = author => {
     })
     .then(({ data: { articles } }) => {
       return articles;
-    });
+    })
+    .catch(err => console.log(err));
 };
 
 export const getArticlesBySort = (column, order) => {
@@ -58,7 +63,8 @@ export const getArticlesBySort = (column, order) => {
     })
     .then(({ data: { articles } }) => {
       return articles;
-    });
+    })
+    .catch(err => console.log(err));
 };
 
 export const postArticle = (title, body, author, topic) => {
@@ -71,7 +77,8 @@ export const postArticle = (title, body, author, topic) => {
     })
     .then(({ data: { article } }) => {
       return article;
-    });
+    })
+    .catch(err => console.log(err));
 };
 
 export const getComments = article_id => {
@@ -81,7 +88,8 @@ export const getComments = article_id => {
     )
     .then(({ data: { comments } }) => {
       return comments;
-    });
+    })
+    .catch(err => console.log(err));
 };
 
 export const postComment = (article_id, username, body) => {
@@ -95,7 +103,8 @@ export const postComment = (article_id, username, body) => {
     )
     .then(({ data: { comment } }) => {
       return comment;
-    });
+    })
+    .catch(err => console.log(err));
 };
 
 export const removeComment = comment_id => {
@@ -103,7 +112,8 @@ export const removeComment = comment_id => {
     .delete(`https://nc-news-sjc.herokuapp.com/api/comments/${comment_id}`)
     .then(response => {
       return response;
-    });
+    })
+    .catch(err => console.log(err));
 };
 
 export const removeArticle = article_id => {
@@ -111,7 +121,8 @@ export const removeArticle = article_id => {
     .delete(`https://nc-news-sjc.herokuapp.com/api/articles/${article_id}`)
     .then(response => {
       return response;
-    });
+    })
+    .catch(err => console.log(err));
 };
 
 export const getUserInfo = username => {
@@ -119,7 +130,8 @@ export const getUserInfo = username => {
     .get(`https://nc-news-sjc.herokuapp.com/api/users/${username}`)
     .then(({ data: { user } }) => {
       return user;
-    });
+    })
+    .catch(err => console.log(err));
 };
 
 export const postUserInfo = username => {
@@ -130,7 +142,8 @@ export const postUserInfo = username => {
     })
     .then(({ data: { user } }) => {
       return user;
-    });
+    })
+    .catch(err => console.log(err));
 };
 
 export const alterVotes = (type, id, integer) => {
@@ -140,5 +153,6 @@ export const alterVotes = (type, id, integer) => {
     })
     .then(({ data }) => {
       return data;
-    });
+    })
+    .catch(err => console.log(err));
 };
